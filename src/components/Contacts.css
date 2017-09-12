@@ -1,0 +1,17 @@
+.ContactsTable {
+	border: 1px solid black;
+	margin: auto;
+	width: 50%;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	font-size: 18px;
+	font-family: "Helvetica", serif;
+	}
+.HomeHeading{
+	color: blue;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	font-family: "Helvetica", serif;
+	}
