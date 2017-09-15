@@ -1,0 +1,38 @@
+.FormHeading{
+	color: blue;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	font-family: "Helvetica", serif;
+	font-size: 50px;
+	}
+.ContactForm {
+	width: 50%;
+	margin: auto;
+	font-size: 30px;
+	font-family: "Helvetica", serif;
+	clear: both;
+	}
+label{
+	text-align:right;
+	padding-right:20px;
+	display:inline-block;
+	width: 30%;
+	margin-bottom: 30px;
+}
+input[type='text']{
+	padding: 8px;
+	display:inline-block;
+	width: 40%;
+}
+input[type='submit']{
+	padding: 8px;
+	width: 100px;
+	font-size: 20px;
+	margin: auto;
+	text-align:center;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+
+}
