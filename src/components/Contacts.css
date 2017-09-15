@@ -1,3 +1,11 @@
+.HomeHeading{
+	color: blue;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	font-family: "Helvetica", serif;
+	font-size: 50px;
+	}
 .ContactsTable {
 	border: 1px solid black;
 	margin: auto;
@@ -5,13 +13,13 @@
 	justify-content: center;
 	display: flex;
 	align-items: center;
-	font-size: 18px;
+	font-size: 30px;
 	font-family: "Helvetica", serif;
+	clear: both;
 	}
-.HomeHeading{
-	color: blue;
-	justify-content: center;
-	display: flex;
-	align-items: center;
-	font-family: "Helvetica", serif;
-	}
+.AddButton{
+	float:right;
+	margin-right: 10%;
+	z-index: -1;
+	margin-top: -100px;
+}

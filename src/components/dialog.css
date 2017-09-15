@@ -8,6 +8,7 @@
   bottom: 0;
   margin: auto;
   background-color: rgba(0,0,0, 0.5);
+  font-family: "Helvetica", serif;
 }
 .popup_inner {
   position: absolute;
@@ -15,9 +16,41 @@
   right: 30%;
   top: 30%;
   bottom: 30%;
-  margin: auto;
   background: white;
 }
-.popup_inner h1, button {
-  margin-left: 40%;
+.popup_inner h1{
+  justify-content: center;
+  display: flex;
+  align-items: center;
 }
+.popup_inner button{
+  width: 20%;
+  height: 10%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+.icon{
+  width: 100px;
+  height: 100px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  margin-top: 50px;
+}
+.yesno{
+  width: 50%;
+  margin: auto;
+}
+.yes{
+  float: left;
+  width: 100px;
+}
+.no{
+  float: right;
+  width: 100px;
+}
+
+

@@ -35,18 +35,9 @@ class ViewContact extends React.Component {
                </tr>
             </table>
             <Action />
-            <Back />
          </div>
       );
    }
 }
 
-
-class Back extends React.Component{
-   render() {
-      return (
-         <input className='BackButton' type="image" src={require("./images/BackButton.png")} alt="BackButton" width="100" height="100"/>
-      );
-   }
-}
 export default ViewContact;
