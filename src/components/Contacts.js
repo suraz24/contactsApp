@@ -5,26 +5,26 @@ class Contacts extends React.Component {
       super();
 		
       this.state = {
-            data: 
-            [
-               {
-                  "id":1,
-                  "firstName":"Krishna",
-                  "lastName":"Adhikari"
-               },
-   				
-               {
-                  "id":2,
-                  "firstName":"Vivek",
-                  "lastName":"Bhusal"
-               },
-   				
-               {
-                  "id":3,
-                  "firstName":"Lauren",
-                  "lastName":"Chia"
-               }
-            ]
+         data: 
+         [
+            {
+               "id":1,
+               "firstName":"Krishna",
+               "lastName":"Adhikari"
+            },
+				
+            {
+               "id":2,
+               "firstName":"Vivek",
+               "lastName":"Bhusal"
+            },
+				
+            {
+               "id":3,
+               "firstName":"Lauren",
+               "lastName":"Chia"
+            }
+         ]
       };
    }
 	
@@ -43,7 +43,7 @@ class Contacts extends React.Component {
             </table>
             <Add />
          </div>
-      );
+         );
    }
 }
 

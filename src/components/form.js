@@ -1,13 +1,10 @@
 import React from 'react';
 
-class Form extends React.Component{
-	constructor(props){
-		super(props);
-	};
-   render() {
+class ContactsForm extends React.Component{
+   	render() {
       return (
       	<div>
-			<FormHeader />
+			<h1 className="FormHeading">{this.props.heading}</h1>
       		<form className='ContactForm'>
       			<label>First Name:</label>
       			<input type="text" name="firstName"/>
@@ -21,21 +18,38 @@ class Form extends React.Component{
       			<label>Mobile:</label>
       			<input type="text" name="mobile"/>
       			<br />
-				<input type="submit" value="Save"/>
+				<input type="submit" value={this.props.button}/>
       		</form>		
       	</div>
       );
    }
 }
 
-class FormHeader extends React.Component {
-   render() {
-      return (
-         <div>
-            <h1 className='FormHeading'>Add</h1>
-         </div>
-      );
-   }
+class FormContents extends React.Component{
+	constructor(props){
+		super(props);
+	};
+	render(){
+		return(
+			<ContactsForm 
+				heading="Add a Contact"
+	            button="Add"
+	     	/>
+     	);
+    }
+	/*
+	Edit
+	----------------------------
+	render(){
+		return(
+			<Form 
+				heading="Edit a Contact"
+	            button="Save"
+	     	/>
+	    );
+	}
+
+	*/
 }
 
-export default Form;
+export default FormContents;
