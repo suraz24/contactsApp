@@ -1,0 +1,33 @@
+.ContactName{
+	color: blue;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	font-family: "Helvetica", serif;
+	font-size: 50px;
+}
+.Contact{
+	border: 1px solid black;
+	margin: auto;
+	width: 50%;
+	justify-content: center;
+	text-align: center;
+	font-size: 30px;
+	font-family: "Helvetica", serif;
+	clear: both;
+}
+.EditButton{
+	float:right;
+	padding: 50px;
+	margin-top: -8%;
+}
+.DeleteButton{
+	float:right;
+	padding: 50px;
+	margin-top: -8%;
+}
+.BackButton{
+	float:left;
+	padding: 50px;
+	margin-top: -8%;
+}

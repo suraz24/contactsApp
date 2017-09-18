@@ -7,7 +7,7 @@ export default{
     noInfo: false,
     entry:[
         'webpack-hot-middleware/client?reload=true',               //?reload=true hot reloads the page if the module isnt working
-        './src/components/index'
+        './src/components/index.js'
     ],
     target: 'web',
     output: {
@@ -24,12 +24,20 @@ export default{
     ],
     module: {
         loaders: [
+            {
+                test: /\.jsx?$/,
+                exclude: /(node_modules|bower_components)/,
+                loader: 'babel',
+                query: {
+                    presets: ['react', 'es2015']
+                }
+            },
             {test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel']},
             {test: /(\.css)$/, loaders: ['style', 'css']},
             {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file'},
             {test: /\.(woff|woff2)$/, loader: 'url?prefix=font/&limit=5000'},
             {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
-            {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml'}
+            {test: /\.png(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/png+xml'}
         ]
     }
 };
