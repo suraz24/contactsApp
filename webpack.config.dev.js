@@ -24,6 +24,14 @@ export default{
     ],
     module: {
         loaders: [
+            {
+                test: /\.jsx?$/,
+                exclude: /(node_modules|bower_components)/,
+                loader: 'babel',
+                query: {
+                    presets: ['react', 'es2015']
+                }
+            },
             {test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel']},
             {test: /(\.css)$/, loaders: ['style', 'css']},
             {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file'},

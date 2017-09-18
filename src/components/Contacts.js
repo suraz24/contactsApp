@@ -1,33 +1,39 @@
 import React from 'react';
+import Axios from 'axios';
 
 class Contacts extends React.Component {
    constructor() {
+       this.GetDetails = this.GetDetails.bind(this);
       super();
 		
       this.state = {
          data: 
          [
-            {
-               "id":1,
-               "firstName":"Krishna",
-               "lastName":"Adhikari"
-            },
-				
-            {
-               "id":2,
-               "firstName":"Vivek",
-               "lastName":"Bhusal"
-            },
-				
-            {
-               "id":3,
-               "firstName":"Lauren",
-               "lastName":"Chia"
-            }
+            // {
+            //    "id":1,
+            //    "firstName":"Krishna",
+            //    "lastName":"Adhikari"
+            // },
+				//
+            // {
+            //    "id":2,
+            //    "firstName":"Vivek",
+            //    "lastName":"Bhusal"
+            // },
+				//
+            // {
+            //    "id":3,
+            //    "firstName":"Lauren",
+            //    "lastName":"Chia"
+            // }
          ]
       };
    }
-	
+    componentDidMount() {
+        Axios.get('https://virtserver.swaggerhub.com/suraz/ContactsAPI/1.0.0/contacts')
+            .then(res => this.setState({ data: res.data }))
+            .catch(err => console.log(err))
+    }
    render() {
       return (
          <div>
@@ -66,10 +72,11 @@ class Add extends React.Component{
 }
 
 class TableRow extends React.Component {
-    
+
+
    render() {
       return (
-         <tr >
+         <tr>
             {/*<td>{this.props.data.id}</td>*/}
             <td>{this.props.data.firstName}</td>
             <td>{this.props.data.lastName}</td>
