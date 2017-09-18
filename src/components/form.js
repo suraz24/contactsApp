@@ -1,7 +1,30 @@
 import React from 'react';
+import Axios from 'axios';
+import ViewContact from './viewContact.js'
+
+
 
 class ContactsForm extends React.Component{
-   	render() {
+	constructor(){
+		super();
+	}
+
+    createContact(e) {
+        e.preventDefault();
+
+        Axios.post("https://virtserver.swaggerhub.com/suraz/ContactsAPI/1.0.0/contact/")
+            .then(res => {
+                console.log(res.data);
+
+            })
+            .catch(err => {
+                console.log(err);
+
+            })
+
+    }
+
+    render() {
       return (
       	<div>
 			<h1 className="FormHeading">{this.props.heading}</h1>
@@ -18,8 +41,8 @@ class ContactsForm extends React.Component{
       			<label>Mobile:</label>
       			<input type="text" name="mobile"/>
       			<br />
-				<input type="submit" value={this.props.button}/>
-      		</form>		
+				<input type="submit" onClick={this.createContact.bind(this)} value={this.props.button} />
+      		</form>
       	</div>
       );
    }
