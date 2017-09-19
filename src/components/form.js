@@ -14,7 +14,7 @@ class ContactsForm extends React.Component{
     createContact(e) {
         e.preventDefault();
 
-        Axios.post("https://virtserver.swaggerhub.com/suraz/ContactsAPI/1.0.0/contact/")
+        Axios.post("http://localhost:2222/contact/create")
             .then(res => {
                 console.log(res.data);
               // browserHistory.push(`contact/${res.data}`);
@@ -52,31 +52,5 @@ class ContactsForm extends React.Component{
    }
 }
 
-class FormContents extends React.Component{
-	constructor(props){
-		super(props);
-	};
-	render(){
-		return(
-			<ContactsForm 
-				heading="Add a Contact"
-	            button="Add"
-	     	/>
-     	);
-    }
-	/*
-	Edit
-	----------------------------
-	render(){
-		return(
-			<Form 
-				heading="Edit a Contact"
-	            button="Save"
-	     	/>
-	    );
-	}
 
-	*/
-}
-
-export default FormContents;
+export default ContactsForm;

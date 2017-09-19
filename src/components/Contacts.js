@@ -32,7 +32,7 @@ class Contacts extends React.Component {
       };
    }
     componentDidMount() {
-        Axios.get('https://virtserver.swaggerhub.com/suraz/ContactsAPI/1.0.0/contacts')
+        Axios.get('http://localhost:2222/contacts')
             .then(res => this.setState({ data: res.data }))
             .catch(err => console.log(err))
     }
@@ -78,11 +78,12 @@ class Add extends React.Component{
 
 const TableRow  = ({contact}) => {
   return (
-          <div key={contact.id}>
+          <div key={contact.uuid}>
+          {console.log(contact)}
              <tr>
-                <Link to= {`contact/${contact.id}`} >
-                    <td>{contact.firstName}</td>
-                    <td>{contact.lastName}</td>
+                <Link to= {`contact/${contact.uuid}`} >
+                    <td>{contact.firstname}</td>
+                    <td>{contact.lastname}</td>
                 </Link>
              </tr>
              {/*<Route path = {`contact/${this.props.data.id}`} component={ViewContact(this.props.id)} />*/}
