@@ -26,15 +26,24 @@ import BackButton from './images/BackButton.png';
 import Form from './form.js';
 import FormCSS from './form.css';
 
+
+import {browserHistory } from 'react-router'
+
+
 import Routes from './routes.js';
 
 class App extends React.Component {
+
+    constructor(){
+        super();
+
+    }
    render() {
 
 
       return (
          <div>
-             <Router>
+             <Router history={browserHistory}>
                 <Routes />
              </Router>
          </div>

@@ -1,8 +1,8 @@
 import React from 'react';
 import Axios from 'axios';
-import ViewContact from './viewContact.js'
-
-
+import {withRouter, Link} from 'react-router-dom';
+import {browserHistory} from 'react-router';
+import ViewContact from './viewContact.js';
 
 class ContactsForm extends React.Component{
 	constructor(){
@@ -15,7 +15,8 @@ class ContactsForm extends React.Component{
         Axios.post("https://virtserver.swaggerhub.com/suraz/ContactsAPI/1.0.0/contact/")
             .then(res => {
                 console.log(res.data);
-
+              // browserHistory.push(`contact/${res.data}`);
+               window.location.assign(`contact/${res.data}`);
             })
             .catch(err => {
                 console.log(err);
