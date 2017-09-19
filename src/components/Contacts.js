@@ -3,6 +3,7 @@ import Axios from 'axios';
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 import ViewContact from './viewContact.js';
 
+
 class Contacts extends React.Component {
    constructor() {
       super();
@@ -43,12 +44,12 @@ class Contacts extends React.Component {
       return (
          <div>
             <Header/>
+            <Add />
             <table className='ContactsTable'>
                <tbody>
                 {row}
                </tbody>
             </table>
-            <Add />
          </div>
          );
    }
@@ -67,9 +68,9 @@ class Header extends React.Component {
 class Add extends React.Component{
    render() {
       return (
-          <Link to ="/addContact">
+         <Link to ="/addContact">
             <input className='AddButton' type="image" src={require("./images/AddButton.png")} alt="AddButton" width="100" height="100"/>
-          </Link>
+         </Link>
       );
    }
 }

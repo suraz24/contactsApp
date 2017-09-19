@@ -21,6 +21,7 @@ import EditButton from './images/EditButton.png';
 import DeleteButton from './images/DeleteButton.png';
 
 import GoBack from './goBack.js';
+import GoBackCSS from './goBack.css';
 import BackButton from './images/BackButton.png';
 
 import Form from './form.js';

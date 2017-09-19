@@ -19,7 +19,6 @@
 	}
 .AddButton{
 	float:right;
-	margin-right: 10%;
-	z-index: -1;
-	margin-top: -100px;
+	padding: 50px;
+	margin-top: -8%;
 }

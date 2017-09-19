@@ -3,6 +3,8 @@ import Axios from 'axios';
 import {withRouter, Link} from 'react-router-dom';
 import {browserHistory} from 'react-router';
 import ViewContact from './viewContact.js';
+import GoBack from './goBack.js';
+
 
 class ContactsForm extends React.Component{
 	constructor(){
@@ -29,6 +31,7 @@ class ContactsForm extends React.Component{
       return (
       	<div>
 			<h1 className="FormHeading">{this.props.heading}</h1>
+			<GoBack />
       		<form className='ContactForm'>
       			<label>First Name:</label>
       			<input type="text" name="firstName"/>
