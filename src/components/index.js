@@ -2,6 +2,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter as Router, Link} from 'react-router-dom';
 
 import Contacts from './Contacts.js';
 import ContactsCSS from './Contacts.css';
@@ -25,11 +26,26 @@ import BackButton from './images/BackButton.png';
 import Form from './form.js';
 import FormCSS from './form.css';
 
+
+import {browserHistory } from 'react-router'
+
+
+import Routes from './routes.js';
+
 class App extends React.Component {
+
+    constructor(){
+        super();
+
+    }
    render() {
+
+
       return (
          <div>
-	        <Contacts />
+             <Router history={browserHistory}>
+                <Routes />
+             </Router>
          </div>
       );
    }

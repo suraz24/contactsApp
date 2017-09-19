@@ -1,9 +1,10 @@
 import React from 'react';
 import Axios from 'axios';
+import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
+import ViewContact from './viewContact.js';
 
 class Contacts extends React.Component {
    constructor() {
-       this.GetDetails = this.GetDetails.bind(this);
       super();
 		
       this.state = {
@@ -35,16 +36,16 @@ class Contacts extends React.Component {
             .catch(err => console.log(err))
     }
    render() {
+        const row = this.state.data.map((contact) => <TableRow contact={contact} />);
+       //key = {i} inside map() function. This will help React to
+       //update only the necessary elements instead of re-rendering the
+       //entire list when something changes
       return (
          <div>
             <Header/>
             <table className='ContactsTable'>
                <tbody>
-                  {this.state.data.map((contact, i) => <TableRow key = {i}  
-                  //key = {i} inside map() function. This will help React to 
-                  //update only the necessary elements instead of re-rendering the 
-                  //entire list when something changes
-                     data = {contact} />)}
+                {row}
                </tbody>
             </table>
             <Add />
@@ -66,24 +67,28 @@ class Header extends React.Component {
 class Add extends React.Component{
    render() {
       return (
-         <input className='AddButton' type="image" src={require("./images/AddButton.png")} alt="AddButton" width="100" height="100"/>
+          <Link to ="/addContact">
+            <input className='AddButton' type="image" src={require("./images/AddButton.png")} alt="AddButton" width="100" height="100"/>
+          </Link>
       );
    }
 }
 
-class TableRow extends React.Component {
 
+const TableRow  = ({contact}) => {
+  return (
+          <div key={contact.id}>
+             <tr>
+                <Link to= {`contact/${contact.id}`} >
+                    <td>{contact.firstName}</td>
+                    <td>{contact.lastName}</td>
+                </Link>
+             </tr>
+             {/*<Route path = {`contact/${this.props.data.id}`} component={ViewContact(this.props.id)} />*/}
 
-   render() {
-      return (
-         <tr>
-            {/*<td>{this.props.data.id}</td>*/}
-            <td>{this.props.data.firstName}</td>
-            <td>{this.props.data.lastName}</td>
-         </tr>
-      );
-   }
-}
+          </div>
+  );
+};
 
 
 export default Contacts;
