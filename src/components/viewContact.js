@@ -9,13 +9,12 @@ class ViewContact extends React.Component {
    constructor(props) {
       super(props);
 
-      const contactId = this.props.match.params.uuid;
-		
       this.state = {
-         data: []
+         data: [],
+         contactId: this.props.match.params.uuid
       };
 
-       Axios.get(`http://localhost:2222/contact/${contactId}`)
+       Axios.get(`http://localhost:3030/contact/${this.state.contactId}`)
          .then(res => {
          this.setState({ data: res.data[0] });
          console.log(res.data[0]);})
@@ -26,7 +25,7 @@ class ViewContact extends React.Component {
          <div>
             <h1 className='ContactName'>{this.state.data.firstname + " " + this.state.data.lastname}</h1>
             <GoBack />
-            <EditButton />
+            <EditButton id={this.state.contactId} />
             <DeleteButton />
             <table className='Contact'>
                <tr>

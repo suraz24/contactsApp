@@ -14,7 +14,7 @@ export default class Routes extends React.Component {
 
                 <Route exact path='/' component={Contact}/>
                 <Route path='/addContact' component={AddContactForm}/>
-                <Route path='/editContact' component={EditContactForm}/>
+                <Route path='/editContact/:uuid' component={EditContactForm}/>
                 <Route path='/contact/:uuid' component={ViewContact}/>
             </div>
         )

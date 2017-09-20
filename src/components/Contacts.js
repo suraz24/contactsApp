@@ -1,6 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
+import AddButton from './AddButton.js';
 import ViewContact from './viewContact.js';
 
 
@@ -32,7 +33,7 @@ class Contacts extends React.Component {
       };
    }
     componentDidMount() {
-        Axios.get('http://localhost:2222/contacts')
+        Axios.get('http://localhost:3030/contacts')
             .then(res => this.setState({ data: res.data }))
             .catch(err => console.log(err))
     }
@@ -44,7 +45,7 @@ class Contacts extends React.Component {
       return (
          <div>
             <Header/>
-            <Add />
+            <AddButton />
             <table className='ContactsTable'>
                <tbody>
                 {row}
@@ -64,17 +65,6 @@ class Header extends React.Component {
       );
    }
 }
-
-class Add extends React.Component{
-   render() {
-      return (
-         <Link to ="/addContact">
-            <input className='AddButton' type="image" src={require("./images/AddButton.png")} alt="AddButton" width="100" height="100"/>
-         </Link>
-      );
-   }
-}
-
 
 const TableRow  = ({contact}) => {
   return (
