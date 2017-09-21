@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import Button from 'muicss/lib/react/button';
 import Axios from 'axios';
 import DeleteButton from './DeleteButton.js';
 import EditButton from './EditButton.js';
@@ -11,25 +13,25 @@ class ViewContact extends React.Component {
 
       this.state = {
          data: [],
-         contactId: this.props.match.params.uuid,
-         
+         contactId: this.props.match.params.uuid
       };
 
        Axios.get(`http://localhost:3030/contact/${this.state.contactId}`)
          .then(res => {
          this.setState({ data: res.data[0] });
-         console.log(res.data[0]);})
+         })
          .catch(err => console.log(err))
 }
 
    render() {
-      const fullName = this.state.data.firstname + " " + this.state.data.lastname
+      const fullName = this.state.data.firstname + " " + this.state.data.lastname;
+      console.log(this.state.data)
       return (
          <div>
             <h1 className='ContactName'>{this.state.data.firstname + " " + this.state.data.lastname}</h1>
             <GoBack />
-            <EditButton id={this.state.contactId} />
-            <DeleteButton fullName={fullName}/>
+            <EditButton id={this.state.data} />
+            <DeleteButton id={this.state.contactId} fullName={fullName}/>
             <table className='Contact'>
                <tr>
                   <td><strong>First Name:</strong> {this.state.data.firstname}<br /></td>

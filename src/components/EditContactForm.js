@@ -7,8 +7,9 @@ class EditContactForm extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-         contactId: this.props.match.params.uuid
-      };
+          contactId: this.props.match.params.uuid,
+          contactData: this.props.location.state.data
+      }; 
 
 		this.updateContact = this.updateContact.bind(this);
 	};
@@ -16,17 +17,16 @@ class EditContactForm extends React.Component{
   	updateContact(contact) {
         Axios.put(`http://localhost:3030/contact/update/${this.state.contactId}`,
         	querystring.stringify({
-               firstName:contact.firstname,
-    	       lastName: contact.lastname,
-        	   workPhone:contact.workphone,
-        	   mobile: contact.mobile
+            firstName:contact.firstname,
+            lastName: contact.lastname,
+            workPhone:contact.workphone,
+            mobile: contact.mobile
         	}),{
                 header:{
                     "Content-Type": "application/x-www-form-urlencoded"
                 }
             })
             .then(res => {
-                console.log(res.data);
               // browserHistory.push(`contact/${res.data}`);
                window.location.assign(`/contact/${this.state.contactId}`);
             })
@@ -36,13 +36,14 @@ class EditContactForm extends React.Component{
     }
 
 	render(){
+    console.log(this.state.contactData);
 		return(
-			<ContactsForm 
+			<ContactsForm contact={this.state.contactData}
 				heading="Edit a Contact"
 				action={this.updateContact}
-	            button="Save"
-	     	/>
-	    );
+        button="Save"
+     	/>
+    );
 	}
 }
 

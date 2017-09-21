@@ -8,9 +8,6 @@ class AddContactForm extends React.Component{
 	}
 
     createContact(contact) {
-    	
-        console.log(contact);
-        console.log('Im inside create contact');
         Axios.post("http://localhost:3030/contact/create",
         	querystring.stringify({
                 firstName:contact.firstname,

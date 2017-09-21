@@ -25,14 +25,10 @@ input[type='text']{
 	display:inline-block;
 	width: 40%;
 }
-input[type='submit']{
-	padding: 8px;
-	width: 100px;
-	font-size: 20px;
-	margin: auto;
-	text-align:center;
-	justify-content: center;
+.SaveButton{
+margin-left: 500px;
+	align-self: center;
+		justify-content: center;
 	display: flex;
 	align-items: center;
-
 }

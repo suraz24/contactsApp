@@ -10,26 +10,7 @@ class Contacts extends React.Component {
       super();
 		
       this.state = {
-         data: 
-         [
-            // {
-            //    "id":1,
-            //    "firstName":"Krishna",
-            //    "lastName":"Adhikari"
-            // },
-				//
-            // {
-            //    "id":2,
-            //    "firstName":"Vivek",
-            //    "lastName":"Bhusal"
-            // },
-				//
-            // {
-            //    "id":3,
-            //    "firstName":"Lauren",
-            //    "lastName":"Chia"
-            // }
-         ]
+         data: []
       };
    }
     componentDidMount() {
@@ -69,15 +50,12 @@ class Header extends React.Component {
 const TableRow  = ({contact}) => {
   return (
           <div key={contact.uuid}>
-          {console.log(contact)}
              <tr>
                 <Link to= {`contact/${contact.uuid}`} >
                     <td>{contact.firstname}</td>
                     <td>{contact.lastname}</td>
                 </Link>
              </tr>
-             {/*<Route path = {`contact/${this.props.data.id}`} component={ViewContact(this.props.id)} />*/}
-
           </div>
   );
 };
