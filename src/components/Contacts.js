@@ -52,7 +52,3 @@ const TableRow  = ({contact}) => {
 
 
 export default Contacts;
-
-
-
-f6762c
