@@ -38,7 +38,8 @@ class EditContactForm extends React.Component{
 	render(){
     console.log(this.state.contactData);
 		return(
-			<ContactsForm contact={this.state.contactData}
+			<ContactsForm 
+        contact={this.state.contactData}
 				heading="Edit a Contact"
 				action={this.updateContact}
         button="Save"

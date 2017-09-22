@@ -1,13 +1,10 @@
-.HomeHeading{
-	color: blue;
+#HomeHeading{
 	justify-content: center;
 	display: flex;
 	align-items: center;
-	font-family: "Helvetica", serif;
-	font-size: 50px;
+	padding-top: 30px;
 	}
-.ContactsTable {
-	border: 1px solid black;
+#ContactsTable {
 	margin: auto;
 	width: 50%;
 	justify-content: center;

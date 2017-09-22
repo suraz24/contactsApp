@@ -24,24 +24,14 @@ class Contacts extends React.Component {
        //update only the necessary elements instead of re-rendering the
        //entire list when something changes
       return (
-         <div>
-            <Header/>
+         <div >
+            <div id='HomeHeading' className="mui--text-display3">My Contacts</div>
             <AddButton />
-            <table className='ContactsTable'>
+            <table id='ContactsTable' className="mui--z3" >
                <tbody>
                 {row}
                </tbody>
             </table>
-         </div>
-         );
-   }
-}
-
-class Header extends React.Component {
-   render() {
-      return (
-         <div>
-            <h1 className='HomeHeading'>My Contacts</h1>
          </div>
       );
    }
@@ -62,3 +52,7 @@ const TableRow  = ({contact}) => {
 
 
 export default Contacts;
+
+
+
+f6762c

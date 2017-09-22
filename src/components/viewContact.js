@@ -28,13 +28,13 @@ class ViewContact extends React.Component {
       console.log(this.state.data)
       return (
          <div>
-            <h1 className='ContactName'>{this.state.data.firstname + " " + this.state.data.lastname}</h1>
+            <h1 id='ContactName' className="mui--text-display3">{this.state.data.firstname + " " + this.state.data.lastname}</h1>
             <GoBack />
             <EditButton id={this.state.data} />
             <DeleteButton id={this.state.contactId} fullName={fullName}/>
-            <table className='Contact'>
+            <table id='Contact' className="mui--z3">
                <tr>
-                  <td><strong>First Name:</strong> {this.state.data.firstname}<br /></td>
+                  <td ><strong>First Name:</strong> {this.state.data.firstname}<br /></td>
                </tr>
                <tr>
                   <td><strong>Last Name:</strong> {this.state.data.lastname}<br /></td>

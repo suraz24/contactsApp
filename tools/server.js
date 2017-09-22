@@ -6,7 +6,7 @@ import open from 'open';
 
 /* eslint-disable no-console */
 
-const port = 8080;
+const port = 9999;
 const app = express();
 const compiler = webpack(config);
 
