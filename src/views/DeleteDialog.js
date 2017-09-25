@@ -1,5 +1,6 @@
+"use strict";
+
 import React from "react";
-import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 import Axios from 'axios';
 import Button from 'muicss/lib/react/button';
 import SuccessMsgDialog from './SuccessMsgDialog.js';
@@ -20,16 +21,16 @@ class DeleteDialog extends React.Component{
     deleteContact() {
         Axios.delete(`http://localhost:3030/contact/delete/${this.state.contactId}`)
             .then(res => {
-              if (res.status === 200) {
-               this.setState({
-                  showDialog: true,
-                });
-              }
+                  if (res.status === 200) {
+                      this.setState({
+                         showDialog: true,
+                      });
+                  }
             })
             .catch(err => {
                 console.log(err); 
                     this.setState({
-                      hasError: true
+                        hasError: true
                     });
             })
     }
@@ -38,7 +39,6 @@ class DeleteDialog extends React.Component{
     const dialog = this.state.hasError ? <FailureMsgDialog display={this.state.showDialog} source={this.state.source} uuid={this.state.contactId}/>
     :
      <SuccessMsgDialog display={this.state.showDialog} text="Contact successfully deleted" source={this.state.source} uuid={this.state.contactId}/>;
-
       return(
         <div>
         {dialog}

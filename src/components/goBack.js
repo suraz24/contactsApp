@@ -1,12 +1,13 @@
+"use strict";
+
 import React from 'react';
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
-
 
 class Back extends React.Component{
 	constructor(props){
 		super(props);
-		
 	};
+
    render() {
       return (
           <Link to ="/">

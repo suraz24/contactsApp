@@ -1,7 +1,7 @@
+"use strict";
+
 import React from 'react';
-import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
-import DeleteDialog from './DeleteDialog.js';
-import ViewContact from './viewContact.js';
+import DeleteDialog from '../views/DeleteDialog.js';
 
 class DeleteButton extends React.Component{
 	constructor(props) {
@@ -15,7 +15,6 @@ class DeleteButton extends React.Component{
       	showPopup: !this.state.showPopup
     	});
   	}
-
 
 	render() {
 		return (

@@ -1,16 +1,15 @@
+"use strict";
+
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Button from 'muicss/lib/react/button';
 import Axios from 'axios';
-import DeleteButton from './DeleteButton.js';
-import EditButton from './EditButton.js';
-import GoBack from './goBack.js';
+import DeleteButton from '../components/DeleteButton.js';
+import EditButton from '../components/EditButton.js';
+import GoBack from '../components/goBack.js';
 import FailureMsgDialog from './FailureMsgDialog.js';
 
 class ViewContact extends React.Component {
    constructor(props) {
       super(props);
-
       this.state = {
          data: [],
          contactId: this.props.match.params.uuid,

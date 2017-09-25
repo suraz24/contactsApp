@@ -1,6 +1,7 @@
+"use strict";
+
 import React from 'react';
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
-
 
 class AddButton extends React.Component{
    	render() {
@@ -11,5 +12,4 @@ class AddButton extends React.Component{
       	);
    	}
 }
-
 export default AddButton;
