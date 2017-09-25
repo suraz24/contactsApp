@@ -1,79 +1,61 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import Button from 'muicss/lib/react/button';
+import Input from 'muicss/lib/react/input';
 import Axios from 'axios';
 import {withRouter, Link} from 'react-router-dom';
 import {browserHistory} from 'react-router';
 import ViewContact from './viewContact.js';
+import GoBack from './goBack.js';
+
 
 class ContactsForm extends React.Component{
-	constructor(){
-		super();
-	}
+	
+  constructor(props){
+		super(props);
+    console.log(props);
 
-    createContact(e) {
-        e.preventDefault();
-
-        Axios.post("https://virtserver.swaggerhub.com/suraz/ContactsAPI/1.0.0/contact/")
-            .then(res => {
-                console.log(res.data);
-              // browserHistory.push(`contact/${res.data}`);
-               window.location.assign(`contact/${res.data}`);
-            })
-            .catch(err => {
-                console.log(err);
-
-            })
-
+    this.state= {
+        firstname: this.props.contact.firstname ||"",
+        lastname: this.props.contact.lastname || "",
+        workphone: this.props.contact.workphone || "",
+        mobile: this.props.contact.mobile || ""
     }
 
+    this.changeValues=this.changeValues.bind(this);
+	}
+
+  adding(e){
+    e.preventDefault();
+      this.props.action(this.state);
+  }
+
+  changeValues(e){
+    this.setState({
+        [e.target.name]: e.target.value
+    });
+  }
     render() {
-      return (
-      	<div>
-			<h1 className="FormHeading">{this.props.heading}</h1>
-      		<form className='ContactForm'>
-      			<label>First Name:</label>
-      			<input type="text" name="firstName"/>
-      			<br />
-      			<label>Last Name:</label>
-      			<input type="text" name="lastName"/>
-      			<br />
-      			<label>Work Phone:</label>
-				<input type="text" name="workPhone"/>
-      			<br />
-      			<label>Mobile:</label>
-      			<input type="text" name="mobile"/>
-      			<br />
-				<input type="submit" onClick={this.createContact.bind(this)} value={this.props.button} />
-      		</form>
-      	</div>
+        return (
+        <div>
+          <div id='formHeading' className="mui--text-display3">{this.props.heading}</div>      
+          <GoBack />
+          <form className='ContactForm'>
+            <Input label="First Name *" floatingLabel={true} type="text" name="firstname" value={this.state.firstname} onChange={this.changeValues} required/>
+            <Input label="Last Name *" floatingLabel={true} type="text" name="lastname" value={this.state.lastname} onChange={this.changeValues} required/>
+            <Input label="Work Phone" floatingLabel={true} type="text" name="workphone" value={this.state.workphone} onChange={this.changeValues} />
+            <Input label="Mobile" floatingLabel={true} type="text" name="mobile" value={this.state.mobile} onChange={this.changeValues}/>
+            <Button variant="raised" color="primary" className="SaveButton" type="submit" onClick={this.adding.bind(this)} >{this.props.button}</Button>
+          </form>
+          <div id="hint" className="mui--text-dark-secondary">* mandatory fields</div>
+        </div>
       );
    }
 }
 
-class FormContents extends React.Component{
-	constructor(props){
-		super(props);
-	};
-	render(){
-		return(
-			<ContactsForm 
-				heading="Add a Contact"
-	            button="Add"
-	     	/>
-     	);
-    }
-	/*
-	Edit
-	----------------------------
-	render(){
-		return(
-			<Form 
-				heading="Edit a Contact"
-	            button="Save"
-	     	/>
-	    );
-	}
-
-	*/
+ContactsForm.defaultProps = {
+  contact : {}
 }
 
-export default FormContents;
+export default ContactsForm;
+

@@ -9,6 +9,8 @@
   margin: auto;
   background-color: rgba(0,0,0, 0.5);
   font-family: "Helvetica", serif;
+  display: flex;
+  z-index: 1;
 }
 .popup_inner {
   position: absolute;
@@ -22,14 +24,16 @@
   justify-content: center;
   display: flex;
   align-items: center;
+  padding: 30px;
 }
 .popup_inner button{
-  width: 20%;
-  height: 10%;
+  width: 15%;
+  height: 12%;
   justify-content: center;
   display: flex;
   align-items: center;
   margin: auto;
+  font-size: 22px;
 }
 .icon{
   width: 100px;
@@ -38,19 +42,35 @@
   display: flex;
   align-items: center;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 35px;
+}
+.question{
+  text-align: center;
+  width: 80%;
+  align-items: center;
+  margin: auto;
+  padding: 10px;
 }
 .yesno{
   width: 50%;
   margin: auto;
 }
-.yes{
+#yes{
   float: left;
-  width: 100px;
+  width: 150px;
+  height: 50px;
+  font-size: 22px;
 }
-.no{
+#no{
   float: right;
-  width: 100px;
+  width: 150px;
+  height: 50px;
+  font-size: 22px;
 }
-
+#SaFPopup{
+  z-index: 2;
+}
+#SaFPopupInner{
+  z-index: 2;
+}
 

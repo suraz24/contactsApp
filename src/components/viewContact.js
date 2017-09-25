@@ -1,44 +1,67 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import Button from 'muicss/lib/react/button';
 import Axios from 'axios';
-import Action from './actionItems.js'
+import DeleteButton from './DeleteButton.js';
+import EditButton from './EditButton.js';
+import GoBack from './goBack.js';
+import FailureMsgDialog from './FailureMsgDialog.js';
 
 class ViewContact extends React.Component {
    constructor(props) {
       super(props);
 
-      const contactId = this.props.match.params.id;
-		
       this.state = {
-         data: {}
+         data: [],
+         contactId: this.props.match.params.uuid,
+         hasError: false
       };
 
-       Axios.get(`https://virtserver.swaggerhub.com/suraz/ContactsAPI/1.0.0/contact/${contactId}`)
-           .then(res => {
-               this.setState({ data: res.data });
-               console.log(res.data);})
-           .catch(err => console.log(err))
-   }
-	
+       Axios.get(`http://localhost:3030/contact/${this.state.contactId}`)
+         .then(res => {
+            if (res.status === 200){ 
+               this.setState({ 
+                  data: res.data[0] 
+               });
+            }
+         })
+         .catch(err => {
+            console.log(err); 
+               this.setState({
+               hasError: true
+               });
+         })
+
+}
+
    render() {
+      const fullName = this.state.data.firstname + " " + this.state.data.lastname;
+      console.log(this.state.data)
+      const dialog = this.state.hasError ? <FailureMsgDialog display={this.state.showDialog} uuid={this.state.contactId}/>
+    :
+     null
       return (
          <div>
-             <h1>{this.state.data.firstName}</h1>
-            <h1 className='ContactName'>{this.state.data.firstname + " " + this.state.data.lastname}</h1>
-            <table className='Contact'>
+            {dialog}
+            <h1 id='ContactName' className="mui--text-display3">{this.state.data.firstname + " " + this.state.data.lastname}</h1>
+            <GoBack />
+            <EditButton id={this.state.data} />
+            <DeleteButton id={this.state.contactId} fullName={fullName}/>
+            <table id='Contact' className="mui--z3">
                <tr>
-                  <td><strong>First Name:</strong> {this.state.data.firstname}<br /></td>
+                  <td ><strong>First Name:</strong> {this.state.data.firstname}<br /></td>
                </tr>
                <tr>
                   <td><strong>Last Name:</strong> {this.state.data.lastname}<br /></td>
                </tr>
                <tr>
-                  <td><strong>Work Phone:</strong> {this.state.data.workPhone}<br /></td>
+                  <td><strong>Work Phone:</strong> {this.state.data.workphone}<br /></td>
                </tr>
                <tr>
                   <td><strong>Mobile:</strong> {this.state.data.mobile}<br /></td>
                </tr>
             </table>
-            <Action />
+            
          </div>
       );
    }
