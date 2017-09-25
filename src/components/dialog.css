@@ -10,6 +10,7 @@
   background-color: rgba(0,0,0, 0.5);
   font-family: "Helvetica", serif;
   display: flex;
+  z-index: 1;
 }
 .popup_inner {
   position: absolute;
@@ -23,14 +24,16 @@
   justify-content: center;
   display: flex;
   align-items: center;
+  padding: 30px;
 }
 .popup_inner button{
-  width: 20%;
-  height: 10%;
+  width: 15%;
+  height: 12%;
   justify-content: center;
   display: flex;
   align-items: center;
   margin: auto;
+  font-size: 22px;
 }
 .icon{
   width: 100px;
@@ -54,11 +57,20 @@
 }
 #yes{
   float: left;
-  width: 100px;
+  width: 150px;
+  height: 50px;
+  font-size: 22px;
 }
 #no{
   float: right;
-  width: 100px;
+  width: 150px;
+  height: 50px;
+  font-size: 22px;
 }
-
+#SaFPopup{
+  z-index: 2;
+}
+#SaFPopupInner{
+  z-index: 2;
+}
 

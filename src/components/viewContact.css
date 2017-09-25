@@ -17,11 +17,9 @@
 }
 .EditButton{
 	float:right;
-	padding: 50px;
-	margin-top: -8%;
+	padding-right: 100px;
 }
 .DeleteButton{
 	float:right;
-	padding: 50px;
-	margin-top: -8%;
+	padding-right: 100px;
 }

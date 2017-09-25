@@ -20,17 +20,18 @@ class DeleteButton extends React.Component{
 	render() {
 		return (
     		<div>
-          		<input className='DeleteButton' onClick={this.togglePopup.bind(this)} type="image" src={require("./images/DeleteButton.png")} alt="DeleteButton" width="100" height="100"/>
-          		{this.state.showPopup ? 
-            	<DeleteDialog
-                  id={this.props.id}
-              		icon="./images/Alert.png"
-              		text= {`Are you sure you want to delete ${this.props.fullName}?`}
-              		closePopup={this.togglePopup.bind(this)}
-            	/>
-           		: null
-         		}
-       		</div>
+          <input className='DeleteButton' onClick={this.togglePopup.bind(this)} type="image" src={require("./images/DeleteButton.png")} alt="DeleteButton" width="100" height="100"/>
+          {this.state.showPopup ? 
+            <DeleteDialog
+              id={this.props.id}
+              icon="./images/Alert.png"
+              text= {`Are you sure you want to delete ${"\n" + this.props.fullName}?`}
+              source="delete"
+              closePopup={this.togglePopup.bind(this)}
+            />
+           	: null
+         	}
+       	</div>
      	);
     }
 }

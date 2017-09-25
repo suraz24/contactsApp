@@ -3,6 +3,7 @@ import Axios from 'axios';
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 import AddButton from './AddButton.js';
 import ViewContact from './viewContact.js';
+import SuccessMsgDialog from './SuccessMsgDialog.js'
 
 
 class Contacts extends React.Component {
@@ -49,6 +50,4 @@ const TableRow  = ({contact}) => {
           </div>
   );
 };
-
-
 export default Contacts;

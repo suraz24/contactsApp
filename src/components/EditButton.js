@@ -5,8 +5,7 @@ import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 const EditButton = ({ id }) => {
 	console.log(id);
 	return (
-		<Link 
-		    to={{ 
+		<Link to={{ 
 		    pathname: `/editContact/${id.uuid}`, 
 		    state: { data: id} 
 		  }}>

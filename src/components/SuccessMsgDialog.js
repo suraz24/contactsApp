@@ -6,29 +6,28 @@ import SaFPopupTemplate from "./SuccessandFailureDialog.js";
 class SuccessMsgDialog extends React.Component {
   constructor() {
     super();
-    this.state = {
-      showPopup: false
-    };
-  }
+      }
   togglePopup() {
-    this.setState({
-      showPopup: !this.state.showPopup
-    });
+    if (this.props.source == "delete"){
+      window.location.assign('/');
+    }
+    else{
+      //console.log("this is from update or create")
+     window.location.assign(`/contact/${this.props.uuid}`);
+    }
   }
   render() {
-    return (
-     <div className='app'>
-        <button onClick={this.togglePopup.bind(this)}>Show popup</button>
-        {this.state.showPopup ? 
-          <SaFPopupTemplate
-            icon="./images/GreenTick.png"
-            text="Success"
-            closePopup={this.togglePopup.bind(this)}
-          />
-          : null
-        }
+    return this.props.display ? (
+      <div>
+        <SaFPopupTemplate 
+              icon="./images/GreenTick.png"
+              text={this.props.text}
+              closePopup={this.togglePopup.bind(this)}
+              buttonLabel="OK"
+            />
       </div>
-    );
+      ) 
+      : null;
   }
 }
 

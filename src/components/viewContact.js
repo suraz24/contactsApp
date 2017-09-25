@@ -5,7 +5,7 @@ import Axios from 'axios';
 import DeleteButton from './DeleteButton.js';
 import EditButton from './EditButton.js';
 import GoBack from './goBack.js';
-
+import FailureMsgDialog from './FailureMsgDialog.js';
 
 class ViewContact extends React.Component {
    constructor(props) {
@@ -13,21 +13,36 @@ class ViewContact extends React.Component {
 
       this.state = {
          data: [],
-         contactId: this.props.match.params.uuid
+         contactId: this.props.match.params.uuid,
+         hasError: false
       };
 
        Axios.get(`http://localhost:3030/contact/${this.state.contactId}`)
          .then(res => {
-         this.setState({ data: res.data[0] });
+            if (res.status === 200){ 
+               this.setState({ 
+                  data: res.data[0] 
+               });
+            }
          })
-         .catch(err => console.log(err))
+         .catch(err => {
+            console.log(err); 
+               this.setState({
+               hasError: true
+               });
+         })
+
 }
 
    render() {
       const fullName = this.state.data.firstname + " " + this.state.data.lastname;
       console.log(this.state.data)
+      const dialog = this.state.hasError ? <FailureMsgDialog display={this.state.showDialog} uuid={this.state.contactId}/>
+    :
+     null
       return (
          <div>
+            {dialog}
             <h1 id='ContactName' className="mui--text-display3">{this.state.data.firstname + " " + this.state.data.lastname}</h1>
             <GoBack />
             <EditButton id={this.state.data} />

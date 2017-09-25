@@ -35,12 +35,7 @@ class ContactsForm extends React.Component{
         [e.target.name]: e.target.value
     });
   }
-
     render() {
-/*      const PopulatedInput = (name, value) => {
-        return value ? (<input type="text" name={name} value={value} onChange={this.changeValues} />) : (<input type="text" name={name} onChange={this.changeValues}/>)
-      }*/
-
         return (
         <div>
           <div id='formHeading' className="mui--text-display3">{this.props.heading}</div>      
@@ -56,34 +51,11 @@ class ContactsForm extends React.Component{
         </div>
       );
    }
-     /* return (
-      	<div>
-          <h1 className="FormHeading">{this.props.heading}</h1>
-          <GoBack />
-      		<form className='ContactForm'>
-      			<label>First Name:</label>
-      			<PopulatedInput  name="firstname" value={this.state.firstname} />
-      			<br />
-      			<label>Last Name:</label>
-      			<PopulatedInput  name="lastname" value={this.state.lastname} />
-      			<br />
-      			<label>Work Phone:</label>
-				    <PopulatedInput  name="workphone" value={this.state.workphone}/>
-      			<br />
-      			<label>Mobile:</label>
-      			<PopulatedInput name="mobile" value={this.state.mobile} />
-      			<br />
-				    <input type="submit" onClick={this.adding.bind(this)} value={this.props.button} />
-      		</form>
-      	</div>
-      );
-   }*/
 }
 
 ContactsForm.defaultProps = {
   contact : {}
 }
-
 
 export default ContactsForm;
 
