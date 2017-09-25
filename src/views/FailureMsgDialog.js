@@ -28,7 +28,7 @@ class FailureMsgDialog extends React.Component {
     return !this.props.display ? (
       <div>
         <SaFPopupTemplate
-          icon="./images/Retry.png"
+          icon="../images/Retry.png"
           text="Sorry, something went wrong. Please try again."
           closePopup={this.togglePopup.bind(this)}
           buttonLabel="OK"

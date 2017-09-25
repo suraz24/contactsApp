@@ -6,6 +6,7 @@ import DeleteButton from '../components/DeleteButton.js';
 import EditButton from '../components/EditButton.js';
 import GoBack from '../components/goBack.js';
 import FailureMsgDialog from './FailureMsgDialog.js';
+import ViewContactStyle from './ViewContact.css';
 
 class ViewContact extends React.Component {
    constructor(props) {

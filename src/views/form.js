@@ -4,6 +4,7 @@ import React from 'react';
 import Button from 'muicss/lib/react/button';
 import Input from 'muicss/lib/react/input';
 import GoBack from '../components/goBack.js';
+import formStyle from './form.css';
 
 class ContactsForm extends React.Component{
   constructor(props){

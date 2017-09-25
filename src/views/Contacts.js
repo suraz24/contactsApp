@@ -4,6 +4,7 @@ import React from 'react';
 import Axios from 'axios';
 import {Link} from 'react-router-dom';
 import AddButton from '../components/AddButton.js';
+import ContactsStyle from './Contacts.css';
 
 class Contacts extends React.Component {
    constructor() {

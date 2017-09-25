@@ -7,7 +7,7 @@ class AddButton extends React.Component{
    	render() {
       	return (
          	<Link to ="/addContact">
-            	<input className='AddButton' type="image" src={require("./images/AddButton.png")} alt="AddButton" width="100" height="100"/>
+            	<input className='AddButton' type="image" src={require("../images/AddButton.png")} alt="AddButton" width="100" height="100"/>
          	</Link>
       	);
    	}

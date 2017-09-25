@@ -1,5 +1,6 @@
 import React from "react";
 import Button from 'muicss/lib/react/button';
+import GreenTick from '../images/GreenTick.png';
 
 class SaFPopupTemplate extends React.Component{
  	render() {

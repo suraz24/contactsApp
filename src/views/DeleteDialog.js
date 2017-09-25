@@ -5,6 +5,7 @@ import Axios from 'axios';
 import Button from 'muicss/lib/react/button';
 import SuccessMsgDialog from './SuccessMsgDialog.js';
 import FailureMsgDialog from './FailureMsgDialog.js';
+import Alert from '../images/Alert.png';
 
 class DeleteDialog extends React.Component{
   constructor(props){
