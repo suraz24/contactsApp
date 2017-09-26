@@ -2,7 +2,8 @@
 
 import React from 'react';
 import SaFPopupTemplate from './SuccessAndFailureDialog.js';
-import greenTick from '../images/GreenTick.png';
+import DialogStyle from '../components/dialog.css';
+
 
 class SuccessMsgDialog extends React.Component {
   constructor() {
@@ -21,16 +22,16 @@ class SuccessMsgDialog extends React.Component {
 
   render() {
     return this.props.display ? (
-          <div>
-            <SaFPopupTemplate
-                  icon="../images/GreenTick.png"
-                  text={this.props.text}
-                  closePopup={this.togglePopup}
-                  buttonLabel="OK"
-                />
-          </div>
-          )
-     : null;
+      <div>
+        <SaFPopupTemplate
+              icon={require("../images/GreenTick.png")}
+              text={this.props.text}
+              closePopup={this.togglePopup}
+              buttonLabel="OK"
+            />
+      </div>
+    )
+    : null;
   }
 }
 

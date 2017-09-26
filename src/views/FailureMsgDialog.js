@@ -2,6 +2,8 @@
 
 import React from "react";
 import SaFPopupTemplate from "./SuccessAndFailureDialog.js";
+import DialogStyle from '../components/dialog.css';
+
 
 class FailureMsgDialog extends React.Component {
   constructor() {
@@ -28,7 +30,7 @@ class FailureMsgDialog extends React.Component {
     return !this.props.display ? (
       <div>
         <SaFPopupTemplate
-          icon="../images/Retry.png"
+          icon={require("../images/Retry.png")}
           text="Sorry, something went wrong. Please try again."
           closePopup={this.togglePopup.bind(this)}
           buttonLabel="OK"

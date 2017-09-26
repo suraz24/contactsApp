@@ -24,8 +24,8 @@ class DeleteButton extends React.Component{
           {this.state.showPopup ? 
             <DeleteDialog
               id={this.props.id}
-              icon="../images/Alert.png"
-              text= {`Are you sure you want to delete ${"\n" + this.props.fullName}?`}
+              icon={require("../images/Alert.png")}
+              text= {`Are you sure you want to delete ${this.props.fullName}?`}
               source="delete"
               closePopup={this.togglePopup.bind(this)}
             />

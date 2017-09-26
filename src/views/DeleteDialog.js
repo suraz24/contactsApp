@@ -6,6 +6,7 @@ import Button from 'muicss/lib/react/button';
 import SuccessMsgDialog from './SuccessMsgDialog.js';
 import FailureMsgDialog from './FailureMsgDialog.js';
 import Alert from '../images/Alert.png';
+import DialogStyle from '../components/dialog.css';
 
 class DeleteDialog extends React.Component{
   constructor(props){
@@ -45,7 +46,7 @@ class DeleteDialog extends React.Component{
         {dialog}
           <div className='popup'>
             <div className='popup_inner'>
-               <img className='icon' src={require(`${this.props.icon}`)} alt='Icon'/> 
+               <img className='icon' src={`${this.props.icon}`} alt='Icon'/> 
                <h1 className='question'>{this.props.text}</h1>
                <div className='yesno'>
                   <Button variant="raised" color="primary" id='yes' onClick={this.deleteContact}>YES</Button>
