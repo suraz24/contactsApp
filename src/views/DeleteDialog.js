@@ -7,6 +7,7 @@ import SuccessMsgDialog from './SuccessMsgDialog.js';
 import FailureMsgDialog from './FailureMsgDialog.js';
 import Alert from '../images/Alert.png';
 import DialogStyle from '../components/dialog.css';
+import EndPoints from '../endpoints';
 
 class DeleteDialog extends React.Component{
   constructor(props){
@@ -21,7 +22,7 @@ class DeleteDialog extends React.Component{
   }
 
     deleteContact() {
-        Axios.delete(`http://localhost:3030/contact/delete/${this.state.contactId}`)
+        Axios.delete(`${API_URL}/${EndPoints.DELETE_CONTACT}/${this.state.contactId}`)
             .then(res => {
                   if (res.status === 200) {
                       this.setState({

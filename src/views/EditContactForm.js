@@ -6,6 +6,7 @@ import Axios from 'axios';
 import querystring from 'querystring';
 import SuccessMsgDialog from './SuccessMsgDialog.js';
 import FailureMsgDialog from './FailureMsgDialog.js';
+import EndPoints from '../endpoints';
 
 class EditContactForm extends React.Component{
 	constructor(props){
@@ -20,7 +21,7 @@ class EditContactForm extends React.Component{
 	};
 
   	updateContact(contact) {
-        Axios.put(`http://localhost:3030/contact/update/${this.state.contactId}`,
+        Axios.put(`${API_URL}/${EndPoints.UPDATE_CONTACT}/${this.state.contactId}`,
         	querystring.stringify({
             firstName:contact.firstname,
             lastName: contact.lastname,

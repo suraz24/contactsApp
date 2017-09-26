@@ -6,6 +6,7 @@ import querystring from 'querystring';
 import Axios from 'axios';
 import SuccessMsgDialog from './SuccessMsgDialog.js';
 import FailureMsgDialog from './FailureMsgDialog.js';
+import EndPoints from '../endpoints';
 
 class AddContactForm extends React.Component{
 	constructor(){
@@ -19,7 +20,7 @@ class AddContactForm extends React.Component{
 	}
 
     createContact(contact) {
-        Axios.post("http://localhost:3030/contact/create",
+        Axios.post(`${API_URL}/${EndPoints.CREATE_CONTACT}`,
         	querystring.stringify({
                 firstName:contact.firstname,
                 lastName: contact.lastname,

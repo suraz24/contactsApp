@@ -6,7 +6,9 @@ import DeleteButton from '../components/DeleteButton.js';
 import EditButton from '../components/EditButton.js';
 import GoBack from '../components/goBack.js';
 import FailureMsgDialog from './FailureMsgDialog.js';
+
 import ViewContactStyle from './ViewContact.css';
+import EndPoints from '../endpoints';
 
 class ViewContact extends React.Component {
    constructor(props) {
@@ -17,7 +19,7 @@ class ViewContact extends React.Component {
          hasError: false
       };
 
-       Axios.get(`http://localhost:3030/contact/${this.state.contactId}`)
+       Axios.get(`${API_URL}/${EndPoints.GET_CONTACT_BY_ID}/${this.state.contactId}`)
          .then(res => {
             if (res.status === 200){ 
                this.setState({ 

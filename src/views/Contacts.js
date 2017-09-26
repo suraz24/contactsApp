@@ -5,6 +5,7 @@ import Axios from 'axios';
 import {Link} from 'react-router-dom';
 import AddButton from '../components/AddButton.js';
 import ContactsStyle from './Contacts.css';
+import Endpoints from '../endpoints';
 
 class Contacts extends React.Component {
    constructor() {
@@ -15,7 +16,7 @@ class Contacts extends React.Component {
    }
 
     componentDidMount() {
-        Axios.get('http://localhost:3030/contacts')
+        Axios.get(`${API_URL}/${Endpoints.GET_ALL_CONTACTS}`)
             .then(res => this.setState({ data: res.data }))
             .catch(err => console.log(err))
     }
@@ -37,7 +38,9 @@ class Contacts extends React.Component {
 }
 
 const TableRow  = ({contact}) => {
+    console.log(contact);
   return (
+
           <div key={contact.uuid}>
              <tr>
                 <Link to= {`contact/${contact.uuid}`} >
