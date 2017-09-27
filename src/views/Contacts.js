@@ -22,7 +22,7 @@ class Contacts extends React.Component {
     }
 
    render() {
-      const row = this.state.data.map((contact) => <TableRow contact={contact} />);
+      const row = this.state.data.map((contact) => <TableRow contact={contact}  key={contact.uuid} />);
       return (
          <div >
             <div id='HomeHeading' className="mui--text-display3">My Contacts</div>
@@ -41,7 +41,7 @@ const TableRow  = ({contact}) => {
     console.log(contact);
   return (
 
-          <div key={contact.uuid}>
+          <div>
              <tr>
                 <Link to= {`contact/${contact.uuid}`} >
                     <td>{contact.firstname}</td>

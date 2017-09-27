@@ -13,13 +13,13 @@ class FailureMsgDialog extends React.Component {
   togglePopup() {
     console.log(this.props);
     if (this.props.source == "delete"){ 
-      window.location.assign(`/contact/${this.props.uuid}`); ///////////SHOULD GO BACK TO VIEW PAGE
+      window.location.assign(`/#/contact/${this.props.uuid}`); ///////////SHOULD GO BACK TO VIEW PAGE
     }
     else if(this.props.source == "create"){
-      window.location.assign('/addContact');
+      window.location.assign('/#/addContact');
     }
     else if(this.props.source == "update"){
-      window.location.assign(`/editContact/${this.props.uuid}`);
+      window.location.assign(`/#/editContact/${this.props.uuid}`);
     }
     else{
       window.location.assign('/');

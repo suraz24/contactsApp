@@ -16,7 +16,7 @@ class SuccessMsgDialog extends React.Component {
       window.location.assign('/');
     }
     else{
-     window.location.assign(`/contact/${this.props.uuid}`);
+     window.location.assign(`/#/contact/${this.props.uuid}`);
     }
   }
 
