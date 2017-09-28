@@ -21,10 +21,14 @@
 	padding-top: 30px;
 	color:#2c94ec;
 }
-#hint{
-	align-self: center;
+#errorPanel{
+	margin: auto;
+	width: 30%;
 	justify-content: center;
 	display: flex;
 	align-items: center;
-	padding-top: 30px;
+	font-size: 18px;
+	clear: both;
+	margin-bottom: 20px;
+	color: red;
 }
