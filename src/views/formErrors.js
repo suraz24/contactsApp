@@ -1,0 +1,15 @@
+import React from 'react';
+//iterates through all form validation errors and displays them
+const FormErrors = ({formErrors}) =>
+  <div className='formErrors'>
+    {Object.keys(formErrors).map((fieldName, i) => {
+      if(formErrors[fieldName].length > 0){
+        return (
+          <p key={i}>{formErrors[fieldName]}</p> //error message
+        )        
+      } else {
+        return ''; //no message
+      }
+    })}
+  </div>
+export default FormErrors;

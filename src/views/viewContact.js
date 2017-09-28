@@ -1,23 +1,25 @@
+"use strict";
+
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Button from 'muicss/lib/react/button';
 import Axios from 'axios';
-import DeleteButton from './DeleteButton.js';
-import EditButton from './EditButton.js';
-import GoBack from './goBack.js';
+import DeleteButton from '../components/DeleteButton.js';
+import EditButton from '../components/EditButton.js';
+import GoBack from '../components/goBack.js';
 import FailureMsgDialog from './FailureMsgDialog.js';
+
+import ViewContactStyle from './ViewContact.css';
+import EndPoints from '../endpoints';
 
 class ViewContact extends React.Component {
    constructor(props) {
       super(props);
-
       this.state = {
          data: [],
          contactId: this.props.match.params.uuid,
          hasError: false
       };
 
-       Axios.get(`http://localhost:3030/contact/${this.state.contactId}`)
+       Axios.get(`${API_URL}/${EndPoints.GET_CONTACT_BY_ID}/${this.state.contactId}`)
          .then(res => {
             if (res.status === 200){ 
                this.setState({ 

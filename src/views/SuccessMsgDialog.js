@@ -1,33 +1,37 @@
 "use strict";
 
-import React from "react";
-import SaFPopupTemplate from "./SuccessandFailureDialog.js";
+import React from 'react';
+import SaFPopupTemplate from './SuccessAndFailureDialog.js';
+import DialogStyle from '../components/dialog.css';
+
 
 class SuccessMsgDialog extends React.Component {
   constructor() {
     super();
-      }
+    this.togglePopup=this.togglePopup.bind(this);
+  }
+
   togglePopup() {
     if (this.props.source == "delete"){
       window.location.assign('/');
     }
     else{
-      //console.log("this is from update or create")
-     window.location.assign(`/contact/${this.props.uuid}`);
+     window.location.assign(`/#/contact/${this.props.uuid}`);
     }
   }
+
   render() {
     return this.props.display ? (
       <div>
-        <SaFPopupTemplate 
-              icon="./images/GreenTick.png"
+        <SaFPopupTemplate
+              icon={require("../images/GreenTick.png")}
               text={this.props.text}
-              closePopup={this.togglePopup.bind(this)}
+              closePopup={this.togglePopup}
               buttonLabel="OK"
             />
       </div>
-      ) 
-      : null;
+    )
+    : null;
   }
 }
 

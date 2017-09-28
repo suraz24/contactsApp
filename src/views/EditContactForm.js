@@ -1,9 +1,12 @@
+"use strict";
+
 import React from 'react';
 import ContactsForm from './form.js';
 import Axios from 'axios';
 import querystring from 'querystring';
 import SuccessMsgDialog from './SuccessMsgDialog.js';
 import FailureMsgDialog from './FailureMsgDialog.js';
+import EndPoints from '../endpoints';
 
 class EditContactForm extends React.Component{
 	constructor(props){
@@ -13,13 +16,12 @@ class EditContactForm extends React.Component{
           contactData: this.props.location.state.data,
           showDialog: false,
           hasError: false
-      }; 
-
+      };
 		this.updateContact = this.updateContact.bind(this);
 	};
 
   	updateContact(contact) {
-        Axios.put(`http://localhost:3030/contact/update/${this.state.contactId}`,
+        Axios.put(`${API_URL}/${EndPoints.UPDATE_CONTACT}/${this.state.contactId}`,
         	querystring.stringify({
             firstName:contact.firstname,
             lastName: contact.lastname,
@@ -28,38 +30,35 @@ class EditContactForm extends React.Component{
         	}),{
                 header:{
                     "Content-Type": "application/x-www-form-urlencoded"
-                }
-            })
-            .then(res => {
-              // browserHistory.push(`contact/${res.data}`);
-              if (res.status === 200) {
-               this.setState({
-                  showDialog: true,
-                });
-              }
-            })
-            .catch(err => {
-                console.log(err); 
-                    this.setState({
-                      hasError: true
-                    });
-            })
+            }
+        })
+        .then(res => {
+          if (res.status === 200) {
+           this.setState({
+              showDialog: true,
+            });
+          }
+        })
+        .catch(err => {
+            this.setState({
+              hasError: true
+            });
+        })
     }
 
 	render() {
     const dialog = this.state.hasError ? <FailureMsgDialog display={this.state.showDialog} source="update" uuid={this.state.contactId}/>
     :
      <SuccessMsgDialog display={this.state.showDialog} text="Contact successfully updated" uuid={this.state.contactId}/>;
-
       return(
         <div>
-        {dialog}
-          <ContactsForm 
-            contact={this.state.contactData}
-            heading="Edit a Contact"
-            action={this.updateContact}
-            button="Save"
-          />
+            {dialog}
+              <ContactsForm
+                contact={this.state.contactData}
+                heading="Edit a Contact"
+                action={this.updateContact}
+                button="Save"
+              />
         </div>
       );
   }
