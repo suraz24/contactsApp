@@ -25,10 +25,10 @@ class ContactsForm extends React.Component{
           lastnameValid: false,
           workphoneValid:false,
           mobileValid: false,
-          firstnameValid: this.props.contact.firstname.match(/^[A-Za-z -]+$/),
-          lastnameValid: this.props.contact.lastname.match(/^[A-Za-z -]+$/),
-          workphoneValid:this.props.contact.workphone.match(/^[0-9]{8,8}$/),
-          mobileValid: this.props.contact.mobile.match(/^[0-9]{10,10}$/),
+          // firstnameValid: this.props.contact.firstname.match(/^[A-Za-z -]+$/),
+          // lastnameValid: this.props.contact.lastname.match(/^[A-Za-z -]+$/),
+          // workphoneValid:this.props.contact.workphone.match(/^[0-9]{8,8}$/),
+          // mobileValid: this.props.contact.mobile.match(/^[0-9]{10,10}$/),
           formValid: false
         }
         this.changeValues=this.changeValues.bind(this);
@@ -84,6 +84,17 @@ class ContactsForm extends React.Component{
     this.setState({ // takes callback function to validate after user types in field
         [name]: value},
         () => {this.validateField(name,value)});
+  }
+  
+  componentWillMount(){ //Initial setting of boolean values for Edit contact pg (will be true unlike Add contact pg)
+    if(this.state.firstname.length > 0 && this.state.lastname.length > 0 && this.state.workphone.length > 0 && this.state.mobile.length > 0 ){
+      this.setState({ 
+        firstnameValid: this.props.contact.firstname.match(/^[A-Za-z -]+$/),
+        lastnameValid: this.props.contact.lastname.match(/^[A-Za-z -]+$/),
+        workphoneValid:this.props.contact.workphone.match(/^[0-9]{8,8}$/),
+        mobileValid: this.props.contact.mobile.match(/^[0-9]{10,10}$/)
+      });
+    }
   }
 
   render() {
