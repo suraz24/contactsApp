@@ -1,0 +1,3 @@
+To ignore a file inside a directory, use the following command:
+
+"testPathIgnorePatterns" : ["<rootDir>/__tests__/jestsetup.js"]
