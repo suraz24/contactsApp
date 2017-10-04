@@ -4,7 +4,6 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const EditButton = ({ id }) => {
-	console.log(id);
 	return (
 		<Link to={{ 
 		    pathname: `/editContact/${id.uuid}`, 
