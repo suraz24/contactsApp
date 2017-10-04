@@ -9,5 +9,6 @@ dist/
 coverage/
 __tests__/__snapshots__/
 __tests__/components/__snapshots__
+__tests__/views/__snapshots__
 yarn.lock
 

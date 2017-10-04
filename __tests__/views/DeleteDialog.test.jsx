@@ -1,5 +1,5 @@
 import React from 'react';
-import DeleteDialog from '../src/views/DeleteDialog';
+import DeleteDialog from '../../src/views/DeleteDialog';
 
 	describe('Delete Dialog', () =>{
 		it('renders a delete dialog box', () => {

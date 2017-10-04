@@ -1,5 +1,5 @@
 import React from 'react';
-import Form from '../src/views/form';
+import Form from '../../src/views/form';
 
 describe('Form', () =>{
 	it('renders the form', () => {

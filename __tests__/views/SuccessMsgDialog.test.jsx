@@ -1,5 +1,5 @@
 import React from 'react';
-import SuccessMsgDialog from '../src/views/SuccessMsgDialog';
+import SuccessMsgDialog from '../../src/views/SuccessMsgDialog';
 
 	describe('Success Dialog', () =>{
 		it('renders a sucess dialog box', () => {
@@ -26,11 +26,11 @@ import SuccessMsgDialog from '../src/views/SuccessMsgDialog';
 			expect(dialogbox.children()).toMatchSnapshot();
 		});
 
-		/*it('should direct to home page after delete', () => {
+		it('should direct to home page after delete', () => {
 			const SuccessMsgDialog = global.shallow(<SuccessMsgDialog />);
 			SuccessMsgDialog.setProps({source: "delete"});
 			// SuccessMsgDialog.togglePopup();
-			expect(window.location.href).toBe('/');
+			expect(global.location.href).toEqual('/');
 		});
 
 		it('should direct to view contact after add', () => {
@@ -39,5 +39,5 @@ import SuccessMsgDialog from '../src/views/SuccessMsgDialog';
 
 		it('should direct to view contact after edit', () => {
 			
-		});*/
+		});
 	});

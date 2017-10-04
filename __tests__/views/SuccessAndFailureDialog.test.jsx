@@ -1,6 +1,6 @@
 import React from 'react';
-import SuccessAndFailureDialog from '../src/views/SuccessAndFailureDialog';
-import SuccessMsgDialog from '../src/views/SuccessMsgDialog';
+import SuccessAndFailureDialog from '../../src/views/SuccessAndFailureDialog';
+import SuccessMsgDialog from '../../src/views/SuccessMsgDialog';
 
 	describe('Success and Failure Dialog', () =>{
 		it('renders a dialog box', () => {

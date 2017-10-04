@@ -1,5 +1,5 @@
 import React from 'react';
-import FailureMsgDialog from '../src/views/FailureMsgDialog';
+import FailureMsgDialog from '../../src/views/FailureMsgDialog';
 
 	describe('Failure Dialog', () =>{
 		it('renders a failure dialog box', () => {
