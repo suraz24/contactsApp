@@ -8,3 +8,6 @@ dist/
 .gitignore
 coverage/
 __tests__/__snapshots__/
+__tests__/components/__snapshots__
+yarn.lock
+

@@ -3,7 +3,6 @@ import Button from 'muicss/lib/react/button';
 import GreenTick from '../images/GreenTick.png';
 import DialogStyle from '../components/dialog.css';
 
-
 class SuccessAndFailureDialog extends React.Component{
  	render() {
     return (
