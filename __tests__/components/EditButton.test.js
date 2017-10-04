@@ -8,7 +8,7 @@ describe('Edit Button', () =>{
     });
 
     it('contains class EditButton which is attached to the input', () => {
-        const component = global.shallow(<EditButton id="{uuid:'465465654'}}" />);
+        const component = global.shallow(<EditButton id="{uuid:'465465654'}" />);
         expect(component.find('.EditButton')).toHaveLength(1);
     });
 });

@@ -6,12 +6,11 @@ import DialogStyle from '../components/dialog.css';
 
 
 class FailureMsgDialog extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   togglePopup() {
-    console.log(this.props);
     if (this.props.source == "delete"){ 
       window.location.assign(`/#/contact/${this.props.uuid}`); ///////////SHOULD GO BACK TO VIEW PAGE
     }
