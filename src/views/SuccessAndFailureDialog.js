@@ -4,11 +4,11 @@ import GreenTick from '../images/GreenTick.png';
 import DialogStyle from '../components/dialog.css';
 
 
-class SaFPopupTemplate extends React.Component{
+class SuccessAndFailureDialog extends React.Component{
  	render() {
     return (
-          <div className='popup' id='SaFPopup'>
-              <div className='popup_inner' id='SaFPopupInner'>
+          <div className='popup' id='SuccessAndFailurePopup'>
+              <div className='popup_inner' id='SuccessAndFailurePopupInner'>
                  <img className='icon' src={`${this.props.icon}`} alt='Icon'/>
                  <h1>{this.props.text}</h1>
                  <Button variant="raised" color="primary" onClick={this.props.closePopup}>{this.props.buttonLabel}</Button>
@@ -17,4 +17,5 @@ class SaFPopupTemplate extends React.Component{
         );
 	}
 }
-export default SaFPopupTemplate;
+
+export default SuccessAndFailureDialog;

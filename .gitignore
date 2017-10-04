@@ -7,3 +7,4 @@ src/components/helloworld.js
 dist/
 .gitignore
 coverage/
+__tests__/__snapshots__/

@@ -11,7 +11,7 @@ describe('App', () => {
     test('Link renders correctly', () => { //requires react-test-rendered
   	const tree = renderer.create(
   		<Router>
-    		<Link url="localhost:8080">Contacts App</Link>
+    		<Link url="https://localhost:8080">Contacts App</Link>
     	</Router>
   		).toJSON();
  	expect(tree).toMatchSnapshot();
@@ -23,9 +23,6 @@ describe('App', () => {
 */
 import React from 'react';
 import DeleteDialog from '../src/views/DeleteDialog';
-import SaFDialog from '../src/views/SuccessAndFailureDialog';
-import SuccessMsgDialog from '../src/views/SuccessMsgDialog';
-import FailureMsgDialog from '../src/views/FailureMsgDialog';
 
 
 	describe('Delete Dialog', () =>{

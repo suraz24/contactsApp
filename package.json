@@ -21,6 +21,7 @@
     "jquery": "2.2.3",
     "konnektid-react-status": "github:konnektid/konnektid-react-status",
     "muicss": "^0.9.25",
+    "prop-types": "^15.6.0",
     "querystring": "^0.2.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
