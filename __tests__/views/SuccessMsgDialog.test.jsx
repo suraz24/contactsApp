@@ -26,7 +26,7 @@ import SuccessMsgDialog from '../../src/views/SuccessMsgDialog';
 			expect(dialogbox.children()).toMatchSnapshot();
 		});
 
-		it('should direct to home page after delete', () => {
+		/*it('should direct to home page after delete', () => {
 			const SuccessMsgDialog = global.shallow(<SuccessMsgDialog />);
 			SuccessMsgDialog.setProps({source: "delete"});
 			// SuccessMsgDialog.togglePopup();
@@ -39,5 +39,5 @@ import SuccessMsgDialog from '../../src/views/SuccessMsgDialog';
 
 		it('should direct to view contact after edit', () => {
 			
-		});
+		});*/
 	});
