@@ -18,7 +18,7 @@ class Contacts extends React.Component {
     componentDidMount() {
         Axios.get(`${API_URL}/${Endpoints.GET_ALL_CONTACTS}`)
             .then(res => this.setState({ data: res.data }))
-            .catch(err => console.log(err))
+            .catch(err => console.log(0))
     }
 
    render() {
@@ -38,9 +38,7 @@ class Contacts extends React.Component {
 }
 
 const TableRow  = ({contact}) => {
-    console.log(contact);
   return (
-
           <div>
              <tr>
                 <Link to= {`contact/${contact.uuid}`} >

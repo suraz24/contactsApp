@@ -28,17 +28,16 @@ class ViewContact extends React.Component {
             }
          })
          .catch(err => {
-            console.log(err); 
+            console.log(0);
                this.setState({
                hasError: true
                });
          })
 
-}
+    }
 
    render() {
       const fullName = this.state.data.firstname + " " + this.state.data.lastname;
-      console.log(this.state.data)
       const dialog = this.state.hasError ? <FailureMsgDialog display={this.state.showDialog} uuid={this.state.contactId}/>
     :
      null
