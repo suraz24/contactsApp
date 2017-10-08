@@ -3,3 +3,5 @@ const contacts = [
     { uuid: 2, firstname: 'Chia',   lastname: 'Latte'},
     { uuid: 3, firstname: 'Vivek',  lastname: 'Bhusal'}
 ];
+
+export default contacts;

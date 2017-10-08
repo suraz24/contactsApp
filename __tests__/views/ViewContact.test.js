@@ -1,6 +1,7 @@
 import React from 'react';
 import ViewContact from '../../src/views/viewContact.js';
 
+
 describe('View Contact page', () => {
     it('is rendered correctly', () => {
         const component = global.shallow(<ViewContact match={{params:'c'}} />);
