@@ -1,6 +1,7 @@
 import React from 'react';
 import ViewContact from '../../src/views/viewContact.js';
-
+import Nock from 'nock';
+import ContactData from '../../__mocks__/ContactData';
 
 describe('View Contact page', () => {
     it('is rendered correctly', () => {
@@ -15,4 +16,20 @@ describe('View Contact page', () => {
     //     expect(component.contains('Contact successfully added')).toBeTruthy();
     // });
 
+    it('test get contact by ID', () => {
+        var data = Nock('http://localhost:3030')
+            .get('/contacts/uuid')
+            .reply(200, ContactData);
+        //console.log(data);
+        //console.log(data.interceptors[0]);
+        //console.log(data.interceptors[0].body);
+        //console.log(data.interceptors[0].body[0]);
+        //console.log(data.interceptors[0].scope.keyedInterceptors);
+
+        //console.log(JSON.parse(data.interceptors[0].body));
+        console.log(JSON.parse(data.interceptors[0].body[0]));
+        //console.log(ContactData[0]);
+
+        expect(JSON.parse(data.interceptors[0].body)).toEqual(ContactData[0]);
+    });
 });

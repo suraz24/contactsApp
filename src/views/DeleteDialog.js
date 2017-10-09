@@ -31,11 +31,11 @@ class DeleteDialog extends React.Component{
                   }
             })
             .catch(err => {
-                console.log(err); 
+                console.log(0); 
                     this.setState({
                         hasError: true
                     });
-            })
+            }) 
     }
 
  	render() {
