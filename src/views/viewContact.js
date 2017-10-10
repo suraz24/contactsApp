@@ -28,7 +28,6 @@ class ViewContact extends React.Component {
             }
          })
          .catch(err => {
-            console.log(0);
                this.setState({
                hasError: true
                });
