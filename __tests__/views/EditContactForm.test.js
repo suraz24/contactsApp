@@ -22,6 +22,21 @@ describe('Edit Contact Form', () => {
             .reply(200 , editContact);
         expect(JSON.parse(data.interceptors[0].body)).toEqual(editContact);
     });
+
+    it('test response', (done) => {
+        //const deleteContact = jest.fn();
+        const contact = {
+                            firstname: 'Krishna',
+                            lastname: 'Adhikari',
+                            workphone: '12345678',
+                            mobile: '1234567890'
+        }
+        const dialogbox = new EditContactForm({match: {params:'123'}});
+        dialogbox.updateContact(contact)
+        .then( () => {
+            expect(dialogbox.state({showDialog})).toBe(true);
+        })
+    });
 // it('displays correct dialog box', () => {
 //     const component = global.shallow(<AddContactForm />);
 //     component.setState({hasError:false,showDialog:true});

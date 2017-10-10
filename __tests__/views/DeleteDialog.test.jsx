@@ -2,6 +2,7 @@ import React from 'react';
 import DeleteDialog from '../../src/views/DeleteDialog';
 import Nock from 'nock';
 import ContactData from '../../__mocks__/ContactData';
+import axios from 'axios';
 
 	describe('Delete Dialog', () =>{
 		it('renders a delete dialog box', () => {
@@ -29,14 +30,33 @@ import ContactData from '../../__mocks__/ContactData';
 			expect(dialogbox.children()).toMatchSnapshot();
 		});
 
-		it('test deleteContact function call', () => {
-			const yesTrigger = jest.fn();
-			const dialogbox = new DeleteDialog(yesTrigger, {contactId: "123"});
-			//const dialogbox = new DeleteDialog({contactId: "123"});
-			expect(yesTrigger).toHaveBeenCalled();
+		it('test check 200 status code', () => {
+			const deleteContact = {uuid: '123',
+	                            firstname: 'Krishna',
+	                            lastname: 'Adhikari',
+	                            workphone: '12345678',
+	                            mobile: '1234567890'
+	                            };
+			var data = Nock('http://localhost:3030')
+	            .delete('/contact/delete')
+	            .reply(200, deleteContact);
+	        expect(data.interceptors[0].statusCode).toBe(200);
 		});
 
-		/*it('test delete contact', () => {
+		it('test check 500 status code', () => {
+			const deleteContact = {uuid: '123',
+	                            firstname: 'Krishna',
+	                            lastname: 'Adhikari',
+	                            workphone: '12345678',
+	                            mobile: '1234567890'
+	                            };
+			var data = Nock('http://localhost:3030')
+	            .delete('/contact/delete')
+	            .reply(500, deleteContact);
+	        expect(data.interceptors[0].statusCode).toBe(500);
+		});
+
+		it('test delete contact', () => {
 	        const deleteContact = {uuid: '123',
 	                            firstname: 'Krishna',
 	                            lastname: 'Adhikari',
@@ -51,9 +71,9 @@ import ContactData from '../../__mocks__/ContactData';
 	        //console.log(data.interceptors[0].body);
 	        //console.log(data.interceptors[0].scope.keyedInterceptors);
 
-	        expect(JSON.parse(data.interceptors[0].body)).toEqual(null);
+	        expect(data.interceptors[0].method).toEqual('DELETE');
     	});
-*/
+
     	it('test successful trigger delete dialog', () => {
 	    	const dialogbox = global.shallow(<DeleteDialog />);
 	    	const deleteContact = {uuid: '123',
@@ -90,4 +110,13 @@ import ContactData from '../../__mocks__/ContactData';
 	        expect(dialogbox.state('hasError')).toBe(true);
     	});
 
-	});
+    	it('test response', (done) => {
+    		//const deleteContact = jest.fn();
+    		const dialogbox = new DeleteDialog({contactId: 123});
+    		dialogbox.deleteContact()
+    		.then( () => {
+    			expect(dialogbox.state({showDialog})).toBe(true);
+    		})
+    	});
+    	//https://medium.com/@srph/axios-easily-test-requests-f04caf49e057
+	}); 

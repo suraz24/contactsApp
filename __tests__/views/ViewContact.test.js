@@ -17,19 +17,21 @@ describe('View Contact page', () => {
     // });
 
     it('test get contact by ID', () => {
+        const component = global.shallow(<ViewContact match={{params:'c'}}/>);
         var data = Nock('http://localhost:3030')
             .get('/contacts/uuid')
             .reply(200, ContactData);
-        //console.log(data);
-        //console.log(data.interceptors[0]);
-        //console.log(data.interceptors[0].body);
-        //console.log(data.interceptors[0].body[0]);
-        //console.log(data.interceptors[0].scope.keyedInterceptors);
 
-        //console.log(JSON.parse(data.interceptors[0].body));
-        console.log(JSON.parse(data.interceptors[0].body[0]));
+            if(data.interceptors[0].statusCode === 200){
+                component.setState({ data: JSON.parse(data.interceptors[0].body)[0]});
+            }
+
+            //console.log(component.state('data'));
+        //console.log(data);
+       //console.log(data.interceptors[0]);
+       // console.log(JSON.parse(data.interceptors[0].body)[0]);
         //console.log(ContactData[0]);
 
-        expect(JSON.parse(data.interceptors[0].body)).toEqual(ContactData[0]);
+        expect(JSON.parse(data.interceptors[0].body)[0]).toEqual(ContactData[0]);
     });
 });
