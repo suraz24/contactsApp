@@ -28,10 +28,7 @@ class ViewContact extends React.Component {
             }
          })
          .catch(err => {
-<<<<<<< Updated upstream
-=======
             //console.log(0);
->>>>>>> Stashed changes
                this.setState({
                hasError: true
                });

@@ -68,21 +68,34 @@ describe('<input />', () => {
         wrapper.instance().validateField('firstname', '!@#!@#$123456asdffadsfsad');
         expect (wrapper.state().firstnameValid).toBeFalsy();
     });
-    it('Submitting the form', () => {
-        let wrapper = global.shallow(<Form />);
-        wrapper.setState({ firstname: 'Lauren', lastname: 'Chia', workphone: '03456789', mobile: '0123456789' });
-        console.log(wrapper.find('Button'));
-       wrapper.find('Button').simulate('click');
-    });
+    // it('Submitting the form', () => {
+    //     let wrapper = global.shallow(<Form />);
+    //     wrapper.setState({ firstname: 'Lauren', lastname: 'Chia', workphone: '03456789', mobile: '0123456789' });
+    //     console.log(wrapper.find('Button'));
+    //    wrapper.find('Button').simulate('click');
+    // });
 });
 
 describe('<Form Error />', () => {
     it('`<Form error>` element should have a className', () => {
-        let wrapper = global.shallow(<FormErrors />)
+        let wrapper = global.shallow(<FormErrors formErrors={{}}/>)
         expect(
             wrapper.find('div').hasClass('formErrors')
         ).toBe(true);
     });
+
+    // it('`<Form error>` returns nothing if no errors are passed', () => {
+    //     let wrapper = global.mount(<FormErrors formErrors={{}}/>);
+    //     const errors = wrapper.find('.formErrors').map(node => node.text());
+    //     expect (errors).toEqual(['']);
+    // });
+
+    // it('`<Form error>` returns errors if there is an error', () => {
+    //     let wrapper = global.shallow(<FormErrors formErrors={formErrors={firstname:'First'}}/>);
+    //     const errors = wrapper.find('.formErrors').map(node => node.text());
+    //     console.log(errors);
+    //     expect(wrapper.find('div.formErrors p')).toEqual(['']);
+    // });
 });
 
     // it('should display an error when no value is input', () => {

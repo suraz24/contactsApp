@@ -39,15 +39,15 @@ class Contacts extends React.Component {
 
 const TableRow  = ({contact}) => {
   return (
-          <div>
-             <tr>
-                <Link to= {`contact/${contact.uuid}`} >
-                    <td>{contact.firstname}</td>
-                    <td>{contact.lastname}</td>
-                </Link>
-             </tr>
-          </div>
-  );
+    <div>
+        <tr>
+            <Link to= {`contact/${contact.uuid}`} >
+                <td>{contact.firstname}</td>
+                <td>{contact.lastname}</td>
+            </Link>
+        </tr>
+    </div>
+);
 };
 
 export default Contacts;

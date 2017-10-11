@@ -22,16 +22,9 @@ describe('View Contact page', () => {
             .get('/contacts/uuid')
             .reply(200, ContactData);
 
-            if(data.interceptors[0].statusCode === 200){
-                component.setState({ data: JSON.parse(data.interceptors[0].body)[0]});
+            if(data.interceptors[0].statusCode === 200) {
+                component.setState({data: JSON.parse(data.interceptors[0].body)[0]});
             }
-
-            //console.log(component.state('data'));
-        //console.log(data);
-       //console.log(data.interceptors[0]);
-       // console.log(JSON.parse(data.interceptors[0].body)[0]);
-        //console.log(ContactData[0]);
-
         expect(JSON.parse(data.interceptors[0].body)[0]).toEqual(ContactData[0]);
     });
 });

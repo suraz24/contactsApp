@@ -19,22 +19,33 @@ class DeleteDialog extends React.Component{
       hasError: false
     };
     this.deleteContact = this.deleteContact.bind(this);
-  }
+    this.SuccessResponse = this.SuccessResponse.bind(this);
+    this.FailureResponse = this.FailureResponse.bind(this);
+  };
+
+    // This function sets the showdialog state to true when the update call returns a success response.
+    SuccessResponse() {
+        this.setState({
+            showDialog: true,
+        });
+    }
+
+    // This function sets the hasError state to true when the update call returns a failure response.
+    FailureResponse(){
+        this.setState({
+            hasError: true
+        });
+    }
 
     deleteContact() {
       Axios.delete(`${API_URL}/${EndPoints.DELETE_CONTACT}/${this.state.contactId}`)
         .then(res => {
             if (res.status === 200) {
-              this.setState({
-                showDialog: true,
-              });
+              this.SuccessResponse();
             }
         })
         .catch(err => {
-          console.log(0); 
-            this.setState({
-               hasError: true
-            });
+            this.FailureResponse();
         }) 
     }
 

@@ -57,8 +57,8 @@ class ContactsForm extends React.Component{
       mobileValid = value.match(/^[0-9]{10,10}$/);
       fieldValidationErrors.mobile = mobileValid ? '': 'Mobile must be 10 numeric digits';
       break;
-    default:
-      break;
+    // default:
+    //   break;
   }
   this.setState({formErrors: fieldValidationErrors,
                   firstnameValid: firstnameValid,
