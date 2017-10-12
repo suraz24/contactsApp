@@ -84,11 +84,11 @@ describe('<Form Error />', () => {
         ).toBe(true);
     });
 
-    // it('`<Form error>` returns nothing if no errors are passed', () => {
-    //     let wrapper = global.mount(<FormErrors formErrors={{}}/>);
-    //     const errors = wrapper.find('.formErrors').map(node => node.text());
-    //     expect (errors).toEqual(['']);
-    // });
+    it('`<Form error>` returns nothing if no errors are passed', () => {
+        let wrapper = global.mount(<FormErrors formErrors={{}}/>);
+        const errors = wrapper.find('.formErrors').map(node => node.text());
+        expect (errors).toEqual(['']);
+    });
 
     // it('`<Form error>` returns errors if there is an error', () => {
     //     let wrapper = global.shallow(<FormErrors formErrors={formErrors={firstname:'First'}}/>);

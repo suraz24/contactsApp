@@ -23,10 +23,12 @@ class EditContactForm extends React.Component{
 	};
 
 	// This function sets the showdialog state to true when the update call returns a success response.
-	SuccessResponse() {
-        this.setState({
-            showDialog: true,
-        });
+	SuccessResponse(res) {
+        if (res.status === 200) {
+            this.setState({
+                showDialog: true,
+            });
+        }
     }
 
     // This function sets the hasError state to true when the update call returns a failure response.
@@ -49,14 +51,8 @@ class EditContactForm extends React.Component{
                     "Content-Type": "application/x-www-form-urlencoded"
             }
         })
-        .then(res => {
-          if (res.status === 200) {
-           this.SuccessResponse();
-          }
-        })
-        .catch(err => {
-          this.FailureResponse();
-        })
+        .then(res => this.SuccessResponse(res))
+        .catch(err => this.FailureResponse());
     }
 
 	render() {

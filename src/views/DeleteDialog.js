@@ -24,10 +24,12 @@ class DeleteDialog extends React.Component{
   };
 
     // This function sets the showdialog state to true when the update call returns a success response.
-    SuccessResponse() {
-        this.setState({
-            showDialog: true,
-        });
+    SuccessResponse(res) {
+        if (res.status === 200) {
+            this.setState({
+                showDialog: true,
+            });
+        }
     }
 
     // This function sets the hasError state to true when the update call returns a failure response.
@@ -39,14 +41,8 @@ class DeleteDialog extends React.Component{
 
     deleteContact() {
       Axios.delete(`${API_URL}/${EndPoints.DELETE_CONTACT}/${this.state.contactId}`)
-        .then(res => {
-            if (res.status === 200) {
-              this.SuccessResponse();
-            }
-        })
-        .catch(err => {
-            this.FailureResponse();
-        }) 
+        .then(res => this.SuccessResponse(res))
+        .catch(err => this.FailureResponse())
     }
 
  	render() {

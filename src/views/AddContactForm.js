@@ -21,11 +21,13 @@ class AddContactForm extends React.Component{
         this.FailureResponse = this.FailureResponse.bind(this);
 	}
 
-	SuccessResponse(uuid){
-        this.setState({
-            showDialog: true,
-            uuid: uuid
-        });
+	SuccessResponse(res) {
+        if (res.status === 200 || res.status === 201) {
+            this.setState({
+                showDialog: true,
+                uuid: res.data
+            });
+        }
     }
 
     FailureResponse(){
@@ -46,14 +48,8 @@ class AddContactForm extends React.Component{
                 "Content-Type": "application/x-www-form-urlencoded"
              }
         })
-            .then(res => {
-              if (res.status === 200 || res.status === 201) {
-               this.SuccessResponse(res.data);
-              }
-            })
-            .catch(err => {
-                this.FailureResponse();
-            })
+        .then(res => this.SuccessResponse(res))
+        .catch(err => this.FailureResponse())
     }
 
     render() {

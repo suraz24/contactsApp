@@ -66,11 +66,6 @@ import axios from 'axios';
 	        var data = Nock('http://localhost:3030')
 	            .delete('/contact/delete')
 	            .reply(200, deleteContact);
-	        //console.log(data);
-	        //console.log(data.interceptors[0]);
-	        //console.log(data.interceptors[0].body);
-	        //console.log(data.interceptors[0].scope.keyedInterceptors);
-
 	        expect(data.interceptors[0].method).toEqual('DELETE');
     	});
 
@@ -110,35 +105,20 @@ import axios from 'axios';
 	        expect(dialogbox.state('hasError')).toBe(true);
     	});
 
-    	// it('test response', (done) => {
-    	// 	//const deleteContact = jest.fn();
-    	// 	const dialogbox = new DeleteDialog({contactId: 123});
-    	// 	dialogbox.deleteContact()
-    	// 	.then( () => {
-    	// 		expect(dialogbox.state({showDialog})).toBe(true);
-    	// 	})
-    	// });
 
         it('test response for success', (done) => {
-            //const deleteContact = jest.fn();
-            const uuid= '123';
             const component = global.shallow(<DeleteDialog />);
-            // const dialogbox = new EditContactForm({match: {params:'123'}}, {location:{state:'random'}});
-            component.instance().SuccessResponse();
-            expect(component.state().showDialog).toBe(true);
+            const res= {status:200};
+            component.instance().SuccessResponse(res);
+            expect(component.state().showDialog).toBeTruthy();
             done();
-
-        });
+		});
 
         it('test response for failure', (done) => {
-            //const deleteContact = jest.fn();
-            const uuid= '123';
             const component = global.shallow(<DeleteDialog />);
-            // const dialogbox = new EditContactForm({match: {params:'123'}}, {location:{state:'random'}});
             component.instance().FailureResponse();
-            expect(component.state().hasError).toBe(true);
+            expect(component.state().hasError).toBeTruthy();
             done();
-
         });
     	//https://medium.com/@srph/axios-easily-test-requests-f04caf49e057
 	}); 

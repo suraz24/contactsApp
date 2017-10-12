@@ -24,39 +24,17 @@ describe('Edit Contact Form', () => {
     });
 
     it('test response for success', (done) => {
-        //const deleteContact = jest.fn();
-        const contact = {
-            firstname: 'Krishna',
-            lastname: 'Adhikari',
-            workphone: '12345678',
-            mobile: '1234567890'
-        }
         const component = global.shallow(<EditContactForm match={{params:'123'}} location={{state:'some random state'}} />);
-       // const dialogbox = new EditContactForm({match: {params:'123'}}, {location:{state:'random'}});
-        component.instance().SuccessResponse();
-        expect(component.state().showDialog).toBe(true);
+        const res= {status:200, data:'123546789'};
+        component.instance().SuccessResponse(res);
+        expect(component.state().showDialog).toBeTruthy();
         done();
-
     });
 
     it('test response for failure', (done) => {
-        //const deleteContact = jest.fn();
-        const contact = {
-            firstname: 'Krishna',
-            lastname: 'Adhikari',
-            workphone: '12345678',
-            mobile: '1234567890'
-        }
         const component = global.shallow(<EditContactForm match={{params:'123'}} location={{state:'some random state'}} />);
-        // const dialogbox = new EditContactForm({match: {params:'123'}}, {location:{state:'random'}});
         component.instance().FailureResponse();
-        expect(component.state().hasError).toBe(true);
+        expect(component.state().hasError).toBeTruthy();
         done();
-
     });
-// it('displays correct dialog box', () => {
-//     const component = global.shallow(<AddContactForm />);
-//     component.setState({hasError:false,showDialog:true});
-//     expect(component.contains('Contact successfully added')).toBeTruthy();
-// });
 });

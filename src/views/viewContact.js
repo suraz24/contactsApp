@@ -19,21 +19,24 @@ class ViewContact extends React.Component {
          hasError: false
       };
 
-       Axios.get(`${API_URL}/${EndPoints.GET_CONTACT_BY_ID}/${this.state.contactId}`)
-         .then(res => {
-            if (res.status === 200){ 
-               this.setState({ 
-                  data: res.data[0] 
-               });
-            }
-         })
-         .catch(err => {
-            //console.log(0);
-               this.setState({
-               hasError: true
-               });
-         })
+      this.SuccessResponse = this.SuccessResponse.bind(this);
+      this.FailureResponse = this.FailureResponse.bind(this);
 
+       Axios.get(`${API_URL}/${EndPoints.GET_CONTACT_BY_ID}/${this.state.contactId}`)
+         .then(res => this.SuccessResponse(res))
+         .catch(err => this.FailureResponse())
+        }
+    SuccessResponse(res){
+        if (res.status === 200){
+            this.setState({
+                data: res.data[0]
+            });
+        }
+    }
+    FailureResponse(){
+        this.setState({
+            hasError: true
+        });
     }
 
    render() {
