@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test jest --coverage --env=jsdom --watchAll",
-    "start": "yarn run clean && cross-env NODE_ENV=development webpack-dashboard -- webpack-dev-server --host 127.0.0.1 --inline --progress --colors",
+    "test": " jest cross-env NODE_ENV=development --coverage --watchAll",
+    "start": "yarn run clean && cross-env NODE_ENV=development  webpack-dev-server --host 127.0.0.1 --inline --progress --colors",
     "build:prod": "cross-env NODE_ENV=production webpack-dev-server -p",
     "clean": "rimraf dist/*"
   },
@@ -17,10 +17,13 @@
     "babel-polyfill": "6.8.0",
     "bootstrap": "3.3.6",
     "enzyme-adapter-react-15": "^1.0.0",
+    "flat": "^4.0.0",
     "history": "^4.7.2",
     "jquery": "2.2.3",
     "konnektid-react-status": "github:konnektid/konnektid-react-status",
+    "moxios": "^0.4.0",
     "muicss": "^0.9.25",
+    "prop-types": "^15.6.0",
     "querystring": "^0.2.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
@@ -71,7 +74,7 @@
     "jest-cli": "^21.2.1",
     "jsdom": "8.5.0",
     "mocha": "2.4.5",
-    "nock": "8.0.0",
+    "nock": "^9.0.22",
     "npm-run-all": "1.8.0",
     "open": "0.0.5",
     "react-test-renderer": "^15.6.1",
@@ -85,10 +88,13 @@
     "webpack-dev-server": "^1.16.2"
   },
   "jest": {
+    "globals": {
+      "API_URL": "http://localhost:3030"
+    },
     "setupFiles": [
       "<rootDir>/config/jestsetup.js"
     ],
-    "automock":false,
+    "automock": false,
     "verbose": true,
     "moduleNameMapper": {
       "\\.(css|less)$": "identity-obj-proxy",

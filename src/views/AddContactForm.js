@@ -17,7 +17,24 @@ class AddContactForm extends React.Component{
             hasError: false
         }
         this.createContact = this.createContact.bind(this);
+        this.SuccessResponse = this.SuccessResponse.bind(this);
+        this.FailureResponse = this.FailureResponse.bind(this);
 	}
+
+	SuccessResponse(res) {
+        if (res.status === 200 || res.status === 201) {
+            this.setState({
+                showDialog: true,
+                uuid: res.data
+            });
+        }
+    }
+
+    FailureResponse(){
+        this.setState({
+            hasError:true
+        });
+    }
 
     createContact(contact) {
         Axios.post(`${API_URL}/${EndPoints.CREATE_CONTACT}`,
@@ -31,19 +48,8 @@ class AddContactForm extends React.Component{
                 "Content-Type": "application/x-www-form-urlencoded"
              }
         })
-            .then(res => {
-              if (res.status === 200 || res.status === 201) {
-                this.setState({
-                  showDialog: true,
-                  uuid: res.data
-                });
-              }
-            })
-            .catch(err => {
-                this.setState({
-                  hasError:true
-                });    
-            })
+        .then(res => this.SuccessResponse(res))
+        .catch(err => this.FailureResponse())
     }
 
     render() {

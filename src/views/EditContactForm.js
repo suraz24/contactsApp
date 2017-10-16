@@ -18,8 +18,27 @@ class EditContactForm extends React.Component{
           hasError: false
       };
 		this.updateContact = this.updateContact.bind(this);
+		this.SuccessResponse = this.SuccessResponse.bind(this);
+		this.FailureResponse = this.FailureResponse.bind(this);
 	};
 
+	// This function sets the showdialog state to true when the update call returns a success response.
+	SuccessResponse(res) {
+        if (res.status === 200) {
+            this.setState({
+                showDialog: true,
+            });
+        }
+    }
+
+    // This function sets the hasError state to true when the update call returns a failure response.
+    FailureResponse(){
+        this.setState({
+            hasError: true
+        });
+    }
+
+	 //This function receives contact data as a parameter and makes an axios call
   	updateContact(contact) {
         Axios.put(`${API_URL}/${EndPoints.UPDATE_CONTACT}/${this.state.contactId}`,
         	querystring.stringify({
@@ -32,18 +51,8 @@ class EditContactForm extends React.Component{
                     "Content-Type": "application/x-www-form-urlencoded"
             }
         })
-        .then(res => {
-          if (res.status === 200) {
-           this.setState({
-              showDialog: true,
-            });
-          }
-        })
-        .catch(err => {
-            this.setState({
-              hasError: true
-            });
-        })
+        .then(res => this.SuccessResponse(res))
+        .catch(err => this.FailureResponse());
     }
 
 	render() {

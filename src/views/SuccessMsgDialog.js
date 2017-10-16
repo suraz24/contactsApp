@@ -1,13 +1,14 @@
 "use strict";
 
 import React from 'react';
-import SaFPopupTemplate from './SuccessAndFailureDialog.js';
+import SuccessAndFailureDialog from './SuccessAndFailureDialog.js';
 import DialogStyle from '../components/dialog.css';
 
 
+
 class SuccessMsgDialog extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.togglePopup=this.togglePopup.bind(this);
   }
 
@@ -23,16 +24,17 @@ class SuccessMsgDialog extends React.Component {
   render() {
     return this.props.display ? (
       <div>
-        <SaFPopupTemplate
-              icon={require("../images/GreenTick.png")}
-              text={this.props.text}
-              closePopup={this.togglePopup}
-              buttonLabel="OK"
-            />
+        <SuccessAndFailureDialog
+          icon={require("../images/GreenTick.png")}
+          text={this.props.text}
+          closePopup={this.togglePopup}
+          buttonLabel="OK"
+        />
       </div>
     )
     : null;
   }
 }
+
 
 export default SuccessMsgDialog;

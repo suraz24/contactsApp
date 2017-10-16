@@ -1,17 +1,16 @@
 "use strict";
 
 import React from "react";
-import SaFPopupTemplate from "./SuccessAndFailureDialog.js";
+import SuccessAndFailureDialog from "./SuccessAndFailureDialog.js";
 import DialogStyle from '../components/dialog.css';
 
 
 class FailureMsgDialog extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   togglePopup() {
-    console.log(this.props);
     if (this.props.source == "delete"){ 
       window.location.assign(`/#/contact/${this.props.uuid}`); ///////////SHOULD GO BACK TO VIEW PAGE
     }
@@ -29,7 +28,7 @@ class FailureMsgDialog extends React.Component {
   render() {
     return !this.props.display ? (
       <div>
-        <SaFPopupTemplate
+        <SuccessAndFailureDialog
           icon={require("../images/Retry.png")}
           text="Sorry, something went wrong. Please try again."
           closePopup={this.togglePopup.bind(this)}
