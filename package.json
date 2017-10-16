@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": " jest cross-env NODE_ENV=development --coverage --watchAll",
-    "start": "yarn run clean && cross-env NODE_ENV=development webpack-dashboard -- webpack-dev-server --host 127.0.0.1 --inline --progress --colors",
+    "start": "yarn run clean && cross-env NODE_ENV=development  webpack-dev-server --host 127.0.0.1 --inline --progress --colors",
     "build:prod": "cross-env NODE_ENV=production webpack-dev-server -p",
     "clean": "rimraf dist/*"
   },
