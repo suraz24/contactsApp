@@ -13,8 +13,8 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 
 //define the Host URL constants
 var API_URL = {
-    development: JSON.stringify('http://contacts-app-be.ap-southeast-2.elasticbeanstalk.com/'),
-    production: JSON.stringify('http://contacts-app-be.ap-southeast-2.elasticbeanstalk.com/')
+    development: JSON.stringify('http://contacts-app-be.ap-southeast-2.elasticbeanstalk.com'),
+    production: JSON.stringify('http://contacts-app-be.ap-southeast-2.elasticbeanstalk.com')
 }
 
 //check the environment
