@@ -13,7 +13,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 
 //define the Host URL constants
 var API_URL = {
-    development: JSON.stringify('http://localhost:3030'),
+    development: JSON.stringify('http://contacts-app-be.ap-southeast-2.elasticbeanstalk.com/'),
     production: JSON.stringify('http://virtserver.swaggerhub.com/suraz/ContactsAPI/1.0.0')
 }
 
