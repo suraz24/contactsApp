@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "cypress:open": "cypress open",
     "test": " jest cross-env NODE_ENV=development --coverage --watchAll",
     "start": "yarn run clean && cross-env NODE_ENV=development  webpack-dev-server --host 127.0.0.1 --inline --progress --colors",
-    "build:prod": "cross-env NODE_ENV=production webpack-dev-server -p",
+    "build:prod": "cross-env NODE_ENV=production webpack -p",
     "clean": "rimraf dist/*"
   },
   "author": "",
@@ -16,6 +17,7 @@
     "babel-jest": "^21.2.0",
     "babel-polyfill": "6.8.0",
     "bootstrap": "3.3.6",
+    "cypress": "^1.0.2",
     "enzyme-adapter-react-15": "^1.0.0",
     "flat": "^4.0.0",
     "history": "^4.7.2",
